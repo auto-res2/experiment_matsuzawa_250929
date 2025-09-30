@@ -1,0 +1,17 @@
+
+Input:
+# Task
+You carefully read the contents of the “Paper Outline” and select one GitHub link from the “GitHub URLs List” that you think is most relevant to the contents.
+# Constraints
+- Output the index number corresponding to the selected GitHub URL.
+- Be sure to select only one GitHub URL.
+- If there is no related GitHub link, output None.
+# Paper Outline
+The core methodology is the 'new linear scaling rule' which formalizes the intuition that optimal hyperparameters for DP-SGD scale linearly with the privacy budget (ε). The method first reduces the dimensionality of HPO by combining key hyperparameters (learning rate η and number of iterations T) into a single scalar variable, r = η × T. It then approximates the function r(ε) using a first-order Taylor approximation by empirically finding two points (ε1, r(ε1)) and (ε2, r(ε2)) via random search with small privacy budgets. A linear interpolation is performed to estimate r for any target εf. The privacy guarantee for the entire HPO process is accounted for using Privacy Loss Variable (PLV) accounting (f-DP). Key design choices include using zero initialization, full-batch gradient descent for maximizing signal-to-noise ratio, unit gradient clipping (C=1), and momentum (ρ=0.9). A theoretical analysis of private gradient descent provides intuition for the linear scaling, relating excess empirical risk to a 'noisy radius' bounded by factors including η and T.
+
+# GitHub URLs List
+['https://github.com/huggingface/transfer-learning-conv-ai', 'https://github.com/lxuechen/private-transformers']
+Output:
+{
+    "index": 1
+}
