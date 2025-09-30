@@ -1,0 +1,17 @@
+
+Input:
+# Task
+You carefully read the contents of the “Paper Outline” and select one GitHub link from the “GitHub URLs List” that you think is most relevant to the contents.
+# Constraints
+- Output the index number corresponding to the selected GitHub URL.
+- Be sure to select only one GitHub URL.
+- If there is no related GitHub link, output None.
+# Paper Outline
+DyHPO employs a Bayesian Optimization framework built upon Gaussian Processes (GP). The core of its methodology lies in a deep multi-fidelity surrogate model. This model utilizes a deep kernel that explicitly incorporates the hyperparameter configuration, the budget information, and the observed learning curve to predict validation scores. The deep kernel uses a neural network (φ) as a feature extractor, combining linear layers for concatenated hyperparameter configuration and normalized budget, and a one-dimensional convolutional layer with global max pooling for the learning curve. These features are then fed into a squared exponential kernel. The parameters of both the kernel and the neural network are optimized by maximizing marginal likelihood using gradient descent with Adam. For selecting the next configuration, DyHPO uses a Multi-Fidelity Expected Improvement (EIMF) acquisition function. Instead of maximizing the acquisition function over both configuration and budget, it dynamically increases the budget for a selected configuration by exactly one step, ensuring a slow, incremental exploration of configurations.
+
+# GitHub URLs List
+['https://github.com/releaunifreiburg/DyHPO', 'https://github.com/automl/LCBench', 'https://github.com/google-research/google-research', 'https://github.com/D-X-Y/NAS-Bench-201', 'https://github.com/automl/HpBandSter', 'https://github.com/automl/DEHB', 'https://github.com/dragonfly/dragonfly', 'https://github.com/shib0li/DNN-MFBO']
+Output:
+{
+    "index": 0
+}
