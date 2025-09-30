@@ -598,7 +598,960 @@
         "LCBench-Tabular",
         "WMT15-DeEn",
         "SVHN"
-      ]
+      ],
+      "external_resources": {
+        "hugging_face": {
+          "models": [
+            {
+              "id": "th1enq/xgboost_checkpoint",
+              "author": "th1enq",
+              "sha": "d2d90d4660da8eb2b3df24e5330ff2d8578495dd",
+              "created_at": "2025-08-05T02:38:24+00:00",
+              "last_modified": "2025-08-05T02:42:17+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 5,
+              "likes": 0,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "LICENSE"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "URLFeatureExtraction.py"
+                },
+                {
+                  "rfilename": "config.json"
+                },
+                {
+                  "rfilename": "features.py"
+                },
+                {
+                  "rfilename": "xgboost_html.joblib"
+                },
+                {
+                  "rfilename": "xgboost_url.joblib"
+                }
+              ],
+              "card_data": {
+                "license": "apache-2.0",
+                "language": "en",
+                "tags": [
+                  "xgboost",
+                  "machine-learning",
+                  "classification",
+                  "cybersecurity",
+                  "phishing-detection"
+                ],
+                "datasets": [
+                  "custom"
+                ],
+                "task_categories": [],
+                "size_categories": [],
+                "metrics": [
+                  "accuracy",
+                  "precision",
+                  "recall",
+                  "f1"
+                ],
+                "widget": []
+              },
+              "tags": [
+                "joblib",
+                "xgboost",
+                "machine-learning",
+                "classification",
+                "cybersecurity",
+                "phishing-detection",
+                "en",
+                "dataset:custom",
+                "license:apache-2.0",
+                "region:us"
+              ],
+              "readme": "---\nlanguage: en\nlicense: apache-2.0\ntags:\n- xgboost\n- machine-learning\n- classification\n- cybersecurity\n- phishing-detection\ndatasets:\n- custom\nmetrics:\n- accuracy\n- precision\n- recall\n- f1\n---\n\n# XGBoost Phishing Detection Models\n\n## Model Description\n\nXGBoost models trained for phishing detection using URL and HTML content features.\n\nThis model is trained using XGBoost for binary classification tasks.\n\n## Model Architecture\n\n- **Model Type**: XGBoost Classifier\n- **Framework**: XGBoost\n- **Task**: Binary Classification\n\n## Usage\n\n```python\nimport joblib\nfrom huggingface_hub import hf_hub_download\n\n# Download the model\nmodel_path = hf_hub_download(repo_id=\"th1enq/xgboost_checkpoint\", filename=\"xgboost phishing detection models.joblib\")\n\n# Load the model\nmodel = joblib.load(model_path)\n\n# Make predictions\npredictions = model.predict(X_test)\n```\n\n## Training\n\nThe model was trained using the XGBoost library with the following approach:\n- Feature extraction from URLs/HTML content\n- Binary classification (legitimate vs phishing)\n- Cross-validation for model evaluation\n\n## Files\n\n- `xgboost phishing detection models.joblib`: The trained XGBoost model\n- `features.py`: Feature extraction functions\n- `URLFeatureExtraction.py`: URL-specific feature extraction\n\n## License\n\nThis model is released under the Apache 2.0 License.\n",
+              "extracted_code": "import joblib\nfrom huggingface_hub import hf_hub_download\n\nmodel_path = hf_hub_download(repo_id=\"th1enq/xgboost_checkpoint\", filename=\"xgboost phishing detection models.joblib\")\n\nmodel = joblib.load(model_path)\n\npredictions = model.predict(X_test)"
+            },
+            {
+              "id": "rachana-rj-news-classification/xgboost-tfidf-classifier",
+              "author": "rachana-rj-news-classification",
+              "sha": "442414a833efcb6447f174e88b1052431ea3cecf",
+              "created_at": "2024-12-16T23:19:11+00:00",
+              "last_modified": "2024-12-16T23:19:13+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 3,
+              "likes": 0,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "config.json"
+                },
+                {
+                  "rfilename": "model.safetensors"
+                },
+                {
+                  "rfilename": "vocab.pt"
+                },
+                {
+                  "rfilename": "xgboost_model.json"
+                }
+              ],
+              "card_data": {
+                "language": [],
+                "library_name": "transformers",
+                "tags": [],
+                "datasets": [],
+                "task_categories": [],
+                "size_categories": [],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "transformers",
+                "safetensors",
+                "xgboost_tfidf",
+                "arxiv:1910.09700",
+                "endpoints_compatible",
+                "region:us"
+              ],
+              "library_name": "transformers",
+              "readme": "---\nlibrary_name: transformers\ntags: []\n---\n\n# Model Card for Model ID\n\n<!-- Provide a quick summary of what the model is/does. -->\n\n\n\n## Model Details\n\n### Model Description\n\n<!-- Provide a longer summary of what this model is. -->\n\nThis is the model card of a 🤗 transformers model that has been pushed on the Hub. This model card has been automatically generated.\n\n- **Developed by:** [More Information Needed]\n- **Funded by [optional]:** [More Information Needed]\n- **Shared by [optional]:** [More Information Needed]\n- **Model type:** [More Information Needed]\n- **Language(s) (NLP):** [More Information Needed]\n- **License:** [More Information Needed]\n- **Finetuned from model [optional]:** [More Information Needed]\n\n### Model Sources [optional]\n\n<!-- Provide the basic links for the model. -->\n\n- **Repository:** [More Information Needed]\n- **Paper [optional]:** [More Information Needed]\n- **Demo [optional]:** [More Information Needed]\n\n## Uses\n\n<!-- Address questions around how the model is intended to be used, including the foreseeable users of the model and those affected by the model. -->\n\n### Direct Use\n\n<!-- This section is for the model use without fine-tuning or plugging into a larger ecosystem/app. -->\n\n[More Information Needed]\n\n### Downstream Use [optional]\n\n<!-- This section is for the model use when fine-tuned for a task, or when plugged into a larger ecosystem/app -->\n\n[More Information Needed]\n\n### Out-of-Scope Use\n\n<!-- This section addresses misuse, malicious use, and uses that the model will not work well for. -->\n\n[More Information Needed]\n\n## Bias, Risks, and Limitations\n\n<!-- This section is meant to convey both technical and sociotechnical limitations. -->\n\n[More Information Needed]\n\n### Recommendations\n\n<!-- This section is meant to convey recommendations with respect to the bias, risk, and technical limitations. -->\n\nUsers (both direct and downstream) should be made aware of the risks, biases and limitations of the model. More information needed for further recommendations.\n\n## How to Get Started with the Model\n\nUse the code below to get started with the model.\n\n[More Information Needed]\n\n## Training Details\n\n### Training Data\n\n<!-- This should link to a Dataset Card, perhaps with a short stub of information on what the training data is all about as well as documentation related to data pre-processing or additional filtering. -->\n\n[More Information Needed]\n\n### Training Procedure\n\n<!-- This relates heavily to the Technical Specifications. Content here should link to that section when it is relevant to the training procedure. -->\n\n#### Preprocessing [optional]\n\n[More Information Needed]\n\n\n#### Training Hyperparameters\n\n- **Training regime:** [More Information Needed] <!--fp32, fp16 mixed precision, bf16 mixed precision, bf16 non-mixed precision, fp16 non-mixed precision, fp8 mixed precision -->\n\n#### Speeds, Sizes, Times [optional]\n\n<!-- This section provides information about throughput, start/end time, checkpoint size if relevant, etc. -->\n\n[More Information Needed]\n\n## Evaluation\n\n<!-- This section describes the evaluation protocols and provides the results. -->\n\n### Testing Data, Factors & Metrics\n\n#### Testing Data\n\n<!-- This should link to a Dataset Card if possible. -->\n\n[More Information Needed]\n\n#### Factors\n\n<!-- These are the things the evaluation is disaggregating by, e.g., subpopulations or domains. -->\n\n[More Information Needed]\n\n#### Metrics\n\n<!-- These are the evaluation metrics being used, ideally with a description of why. -->\n\n[More Information Needed]\n\n### Results\n\n[More Information Needed]\n\n#### Summary\n\n\n\n## Model Examination [optional]\n\n<!-- Relevant interpretability work for the model goes here -->\n\n[More Information Needed]\n\n## Environmental Impact\n\n<!-- Total emissions (in grams of CO2eq) and additional considerations, such as electricity usage, go here. Edit the suggested text below accordingly -->\n\nCarbon emissions can be estimated using the [Machine Learning Impact calculator](https://mlco2.github.io/impact#compute) presented in [Lacoste et al. (2019)](https://arxiv.org/abs/1910.09700).\n\n- **Hardware Type:** [More Information Needed]\n- **Hours used:** [More Information Needed]\n- **Cloud Provider:** [More Information Needed]\n- **Compute Region:** [More Information Needed]\n- **Carbon Emitted:** [More Information Needed]\n\n## Technical Specifications [optional]\n\n### Model Architecture and Objective\n\n[More Information Needed]\n\n### Compute Infrastructure\n\n[More Information Needed]\n\n#### Hardware\n\n[More Information Needed]\n\n#### Software\n\n[More Information Needed]\n\n## Citation [optional]\n\n<!-- If there is a paper or blog post introducing the model, the APA and Bibtex information for that should go in this section. -->\n\n**BibTeX:**\n\n[More Information Needed]\n\n**APA:**\n\n[More Information Needed]\n\n## Glossary [optional]\n\n<!-- If relevant, include terms and calculations in this section that can help readers understand the model or model card. -->\n\n[More Information Needed]\n\n## More Information [optional]\n\n[More Information Needed]\n\n## Model Card Authors [optional]\n\n[More Information Needed]\n\n## Model Card Contact\n\n[More Information Needed]",
+              "extracted_code": ""
+            },
+            {
+              "id": "elawrie/rnn-xgboost-classifier",
+              "author": "elawrie",
+              "sha": "c43167d9d1008c182f5bbd49f9510c2b9e450d02",
+              "created_at": "2024-12-15T22:03:34+00:00",
+              "last_modified": "2024-12-15T22:07:50+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 2,
+              "likes": 0,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "config.json"
+                },
+                {
+                  "rfilename": "rnn_model.pth"
+                },
+                {
+                  "rfilename": "xgboost_model.pkl"
+                }
+              ],
+              "card_data": {
+                "language": [],
+                "library_name": "transformers",
+                "tags": [],
+                "datasets": [],
+                "task_categories": [],
+                "size_categories": [],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "transformers",
+                "arxiv:1910.09700",
+                "endpoints_compatible",
+                "region:us"
+              ],
+              "library_name": "transformers",
+              "readme": "---\nlibrary_name: transformers\ntags: []\n---\n\n# Model Card for Model ID\n\n<!-- Provide a quick summary of what the model is/does. -->\n\n\n\n## Model Details\n\n### Model Description\n\n<!-- Provide a longer summary of what this model is. -->\n\nThis is the model card of a 🤗 transformers model that has been pushed on the Hub. This model card has been automatically generated.\n\n- **Developed by:** [More Information Needed]\n- **Funded by [optional]:** [More Information Needed]\n- **Shared by [optional]:** [More Information Needed]\n- **Model type:** [More Information Needed]\n- **Language(s) (NLP):** [More Information Needed]\n- **License:** [More Information Needed]\n- **Finetuned from model [optional]:** [More Information Needed]\n\n### Model Sources [optional]\n\n<!-- Provide the basic links for the model. -->\n\n- **Repository:** [More Information Needed]\n- **Paper [optional]:** [More Information Needed]\n- **Demo [optional]:** [More Information Needed]\n\n## Uses\n\n<!-- Address questions around how the model is intended to be used, including the foreseeable users of the model and those affected by the model. -->\n\n### Direct Use\n\n<!-- This section is for the model use without fine-tuning or plugging into a larger ecosystem/app. -->\n\n[More Information Needed]\n\n### Downstream Use [optional]\n\n<!-- This section is for the model use when fine-tuned for a task, or when plugged into a larger ecosystem/app -->\n\n[More Information Needed]\n\n### Out-of-Scope Use\n\n<!-- This section addresses misuse, malicious use, and uses that the model will not work well for. -->\n\n[More Information Needed]\n\n## Bias, Risks, and Limitations\n\n<!-- This section is meant to convey both technical and sociotechnical limitations. -->\n\n[More Information Needed]\n\n### Recommendations\n\n<!-- This section is meant to convey recommendations with respect to the bias, risk, and technical limitations. -->\n\nUsers (both direct and downstream) should be made aware of the risks, biases and limitations of the model. More information needed for further recommendations.\n\n## How to Get Started with the Model\n\nUse the code below to get started with the model.\n\n[More Information Needed]\n\n## Training Details\n\n### Training Data\n\n<!-- This should link to a Dataset Card, perhaps with a short stub of information on what the training data is all about as well as documentation related to data pre-processing or additional filtering. -->\n\n[More Information Needed]\n\n### Training Procedure\n\n<!-- This relates heavily to the Technical Specifications. Content here should link to that section when it is relevant to the training procedure. -->\n\n#### Preprocessing [optional]\n\n[More Information Needed]\n\n\n#### Training Hyperparameters\n\n- **Training regime:** [More Information Needed] <!--fp32, fp16 mixed precision, bf16 mixed precision, bf16 non-mixed precision, fp16 non-mixed precision, fp8 mixed precision -->\n\n#### Speeds, Sizes, Times [optional]\n\n<!-- This section provides information about throughput, start/end time, checkpoint size if relevant, etc. -->\n\n[More Information Needed]\n\n## Evaluation\n\n<!-- This section describes the evaluation protocols and provides the results. -->\n\n### Testing Data, Factors & Metrics\n\n#### Testing Data\n\n<!-- This should link to a Dataset Card if possible. -->\n\n[More Information Needed]\n\n#### Factors\n\n<!-- These are the things the evaluation is disaggregating by, e.g., subpopulations or domains. -->\n\n[More Information Needed]\n\n#### Metrics\n\n<!-- These are the evaluation metrics being used, ideally with a description of why. -->\n\n[More Information Needed]\n\n### Results\n\n[More Information Needed]\n\n#### Summary\n\n\n\n## Model Examination [optional]\n\n<!-- Relevant interpretability work for the model goes here -->\n\n[More Information Needed]\n\n## Environmental Impact\n\n<!-- Total emissions (in grams of CO2eq) and additional considerations, such as electricity usage, go here. Edit the suggested text below accordingly -->\n\nCarbon emissions can be estimated using the [Machine Learning Impact calculator](https://mlco2.github.io/impact#compute) presented in [Lacoste et al. (2019)](https://arxiv.org/abs/1910.09700).\n\n- **Hardware Type:** [More Information Needed]\n- **Hours used:** [More Information Needed]\n- **Cloud Provider:** [More Information Needed]\n- **Compute Region:** [More Information Needed]\n- **Carbon Emitted:** [More Information Needed]\n\n## Technical Specifications [optional]\n\n### Model Architecture and Objective\n\n[More Information Needed]\n\n### Compute Infrastructure\n\n[More Information Needed]\n\n#### Hardware\n\n[More Information Needed]\n\n#### Software\n\n[More Information Needed]\n\n## Citation [optional]\n\n<!-- If there is a paper or blog post introducing the model, the APA and Bibtex information for that should go in this section. -->\n\n**BibTeX:**\n\n[More Information Needed]\n\n**APA:**\n\n[More Information Needed]\n\n## Glossary [optional]\n\n<!-- If relevant, include terms and calculations in this section that can help readers understand the model or model card. -->\n\n[More Information Needed]\n\n## More Information [optional]\n\n[More Information Needed]\n\n## Model Card Authors [optional]\n\n[More Information Needed]\n\n## Model Card Contact\n\n[More Information Needed]",
+              "extracted_code": ""
+            }
+          ],
+          "datasets": [
+            {
+              "id": "uoft-cs/cifar10",
+              "author": "uoft-cs",
+              "sha": "0b2714987fa478483af9968de7c934580d0bb9a2",
+              "created_at": "2022-03-02T23:29:22+00:00",
+              "last_modified": "2024-01-04T06:53:11+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 71114,
+              "likes": 85,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "plain_text/test-00000-of-00001.parquet"
+                },
+                {
+                  "rfilename": "plain_text/train-00000-of-00001.parquet"
+                }
+              ],
+              "card_data": {
+                "license": [
+                  "unknown"
+                ],
+                "language": [
+                  "en"
+                ],
+                "tags": [],
+                "datasets": [],
+                "task_categories": [
+                  "image-classification"
+                ],
+                "size_categories": [
+                  "10K<n<100K"
+                ],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "task_categories:image-classification",
+                "annotations_creators:crowdsourced",
+                "language_creators:found",
+                "multilinguality:monolingual",
+                "source_datasets:extended|other-80-Million-Tiny-Images",
+                "language:en",
+                "license:unknown",
+                "size_categories:10K<n<100K",
+                "format:parquet",
+                "modality:image",
+                "library:datasets",
+                "library:pandas",
+                "library:mlcroissant",
+                "library:polars",
+                "region:us"
+              ],
+              "readme": "---\nannotations_creators:\n- crowdsourced\nlanguage_creators:\n- found\nlanguage:\n- en\nlicense:\n- unknown\nmultilinguality:\n- monolingual\nsize_categories:\n- 10K<n<100K\nsource_datasets:\n- extended|other-80-Million-Tiny-Images\ntask_categories:\n- image-classification\ntask_ids: []\npaperswithcode_id: cifar-10\npretty_name: Cifar10\ndataset_info:\n  config_name: plain_text\n  features:\n  - name: img\n    dtype: image\n  - name: label\n    dtype:\n      class_label:\n        names:\n          '0': airplane\n          '1': automobile\n          '2': bird\n          '3': cat\n          '4': deer\n          '5': dog\n          '6': frog\n          '7': horse\n          '8': ship\n          '9': truck\n  splits:\n  - name: train\n    num_bytes: 113648310.0\n    num_examples: 50000\n  - name: test\n    num_bytes: 22731580.0\n    num_examples: 10000\n  download_size: 143646105\n  dataset_size: 136379890.0\nconfigs:\n- config_name: plain_text\n  data_files:\n  - split: train\n    path: plain_text/train-*\n  - split: test\n    path: plain_text/test-*\n  default: true\n---\n\n# Dataset Card for CIFAR-10\n\n## Table of Contents\n- [Dataset Description](#dataset-description)\n  - [Dataset Summary](#dataset-summary)\n  - [Supported Tasks and Leaderboards](#supported-tasks-and-leaderboards)\n  - [Languages](#languages)\n- [Dataset Structure](#dataset-structure)\n  - [Data Instances](#data-instances)\n  - [Data Fields](#data-fields)\n  - [Data Splits](#data-splits)\n- [Dataset Creation](#dataset-creation)\n  - [Curation Rationale](#curation-rationale)\n  - [Source Data](#source-data)\n  - [Annotations](#annotations)\n  - [Personal and Sensitive Information](#personal-and-sensitive-information)\n- [Considerations for Using the Data](#considerations-for-using-the-data)\n  - [Social Impact of Dataset](#social-impact-of-dataset)\n  - [Discussion of Biases](#discussion-of-biases)\n  - [Other Known Limitations](#other-known-limitations)\n- [Additional Information](#additional-information)\n  - [Dataset Curators](#dataset-curators)\n  - [Licensing Information](#licensing-information)\n  - [Citation Information](#citation-information)\n  - [Contributions](#contributions)\n\n## Dataset Description\n\n- **Homepage:** https://www.cs.toronto.edu/~kriz/cifar.html\n- **Repository:** \n- **Paper:** Learning Multiple Layers of Features from Tiny Images by Alex Krizhevsky\n- **Leaderboard:**\n- **Point of Contact:**\n\n### Dataset Summary\n\nThe CIFAR-10 dataset consists of 60000 32x32 colour images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images.\nThe dataset is divided into five training batches and one test batch, each with 10000 images. The test batch contains exactly 1000 randomly-selected images from each class. The training batches contain the remaining images in random order, but some training batches may contain more images from one class than another. Between them, the training batches contain exactly 5000 images from each class.\n\n### Supported Tasks and Leaderboards\n\n- `image-classification`: The goal of this task is to classify a given image into one of 10 classes. The leaderboard is available [here](https://paperswithcode.com/sota/image-classification-on-cifar-10).\n\n### Languages\n\nEnglish\n\n## Dataset Structure\n\n### Data Instances\n\nA sample from the training set is provided below:\n\n```\n{\n  'img': <PIL.PngImagePlugin.PngImageFile image mode=RGB size=32x32 at 0x201FA6EE748>,\n  'label': 0\n}\n```\n\n### Data Fields\n\n- img: A `PIL.Image.Image` object containing the 32x32 image. Note that when accessing the image column: `dataset[0][\"image\"]` the image file is automatically decoded. Decoding of a large number of image files might take a significant amount of time. Thus it is important to first query the sample index before the `\"image\"` column, *i.e.* `dataset[0][\"image\"]` should **always** be preferred over `dataset[\"image\"][0]`\n- label: 0-9 with the following correspondence\n         0 airplane\n         1 automobile\n         2 bird\n         3 cat\n         4 deer\n         5 dog\n         6 frog\n         7 horse\n         8 ship\n         9 truck\n\n### Data Splits\n\nTrain and Test\n\n## Dataset Creation\n\n### Curation Rationale\n\n[More Information Needed]\n\n### Source Data\n\n#### Initial Data Collection and Normalization\n\n[More Information Needed]\n\n#### Who are the source language producers?\n\n[More Information Needed]\n\n### Annotations\n\n#### Annotation process\n\n[More Information Needed]\n\n#### Who are the annotators?\n\n[More Information Needed]\n\n### Personal and Sensitive Information\n\n[More Information Needed]\n\n## Considerations for Using the Data\n\n### Social Impact of Dataset\n\n[More Information Needed]\n\n### Discussion of Biases\n\n[More Information Needed]\n\n### Other Known Limitations\n\n[More Information Needed]\n\n## Additional Information\n\n### Dataset Curators\n\n[More Information Needed]\n\n### Licensing Information\n\n[More Information Needed]\n\n### Citation Information\n\n```\n@TECHREPORT{Krizhevsky09learningmultiple,\n    author = {Alex Krizhevsky},\n    title = {Learning multiple layers of features from tiny images},\n    institution = {},\n    year = {2009}\n}\n```\n\n### Contributions\n\nThanks to [@czabo](https://github.com/czabo) for adding this dataset.",
+              "extracted_code": ""
+            },
+            {
+              "id": "uoft-cs/cifar100",
+              "author": "uoft-cs",
+              "sha": "aadb3af77e9048adbea6b47c21a81e47dd092ae5",
+              "created_at": "2022-03-02T23:29:22+00:00",
+              "last_modified": "2024-01-04T06:57:47+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 12540,
+              "likes": 53,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "cifar100/test-00000-of-00001.parquet"
+                },
+                {
+                  "rfilename": "cifar100/train-00000-of-00001.parquet"
+                }
+              ],
+              "card_data": {
+                "license": [
+                  "unknown"
+                ],
+                "language": [
+                  "en"
+                ],
+                "tags": [],
+                "datasets": [],
+                "task_categories": [
+                  "image-classification"
+                ],
+                "size_categories": [
+                  "10K<n<100K"
+                ],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "task_categories:image-classification",
+                "annotations_creators:crowdsourced",
+                "language_creators:found",
+                "multilinguality:monolingual",
+                "source_datasets:extended|other-80-Million-Tiny-Images",
+                "language:en",
+                "license:unknown",
+                "size_categories:10K<n<100K",
+                "format:parquet",
+                "modality:image",
+                "library:datasets",
+                "library:pandas",
+                "library:mlcroissant",
+                "library:polars",
+                "region:us"
+              ],
+              "readme": "---\nannotations_creators:\n- crowdsourced\nlanguage_creators:\n- found\nlanguage:\n- en\nlicense:\n- unknown\nmultilinguality:\n- monolingual\nsize_categories:\n- 10K<n<100K\nsource_datasets:\n- extended|other-80-Million-Tiny-Images\ntask_categories:\n- image-classification\ntask_ids: []\npaperswithcode_id: cifar-100\npretty_name: Cifar100\ndataset_info:\n  config_name: cifar100\n  features:\n  - name: img\n    dtype: image\n  - name: fine_label\n    dtype:\n      class_label:\n        names:\n          '0': apple\n          '1': aquarium_fish\n          '2': baby\n          '3': bear\n          '4': beaver\n          '5': bed\n          '6': bee\n          '7': beetle\n          '8': bicycle\n          '9': bottle\n          '10': bowl\n          '11': boy\n          '12': bridge\n          '13': bus\n          '14': butterfly\n          '15': camel\n          '16': can\n          '17': castle\n          '18': caterpillar\n          '19': cattle\n          '20': chair\n          '21': chimpanzee\n          '22': clock\n          '23': cloud\n          '24': cockroach\n          '25': couch\n          '26': cra\n          '27': crocodile\n          '28': cup\n          '29': dinosaur\n          '30': dolphin\n          '31': elephant\n          '32': flatfish\n          '33': forest\n          '34': fox\n          '35': girl\n          '36': hamster\n          '37': house\n          '38': kangaroo\n          '39': keyboard\n          '40': lamp\n          '41': lawn_mower\n          '42': leopard\n          '43': lion\n          '44': lizard\n          '45': lobster\n          '46': man\n          '47': maple_tree\n          '48': motorcycle\n          '49': mountain\n          '50': mouse\n          '51': mushroom\n          '52': oak_tree\n          '53': orange\n          '54': orchid\n          '55': otter\n          '56': palm_tree\n          '57': pear\n          '58': pickup_truck\n          '59': pine_tree\n          '60': plain\n          '61': plate\n          '62': poppy\n          '63': porcupine\n          '64': possum\n          '65': rabbit\n          '66': raccoon\n          '67': ray\n          '68': road\n          '69': rocket\n          '70': rose\n          '71': sea\n          '72': seal\n          '73': shark\n          '74': shrew\n          '75': skunk\n          '76': skyscraper\n          '77': snail\n          '78': snake\n          '79': spider\n          '80': squirrel\n          '81': streetcar\n          '82': sunflower\n          '83': sweet_pepper\n          '84': table\n          '85': tank\n          '86': telephone\n          '87': television\n          '88': tiger\n          '89': tractor\n          '90': train\n          '91': trout\n          '92': tulip\n          '93': turtle\n          '94': wardrobe\n          '95': whale\n          '96': willow_tree\n          '97': wolf\n          '98': woman\n          '99': worm\n  - name: coarse_label\n    dtype:\n      class_label:\n        names:\n          '0': aquatic_mammals\n          '1': fish\n          '2': flowers\n          '3': food_containers\n          '4': fruit_and_vegetables\n          '5': household_electrical_devices\n          '6': household_furniture\n          '7': insects\n          '8': large_carnivores\n          '9': large_man-made_outdoor_things\n          '10': large_natural_outdoor_scenes\n          '11': large_omnivores_and_herbivores\n          '12': medium_mammals\n          '13': non-insect_invertebrates\n          '14': people\n          '15': reptiles\n          '16': small_mammals\n          '17': trees\n          '18': vehicles_1\n          '19': vehicles_2\n  splits:\n  - name: train\n    num_bytes: 112545106.0\n    num_examples: 50000\n  - name: test\n    num_bytes: 22564261.0\n    num_examples: 10000\n  download_size: 142291368\n  dataset_size: 135109367.0\nconfigs:\n- config_name: cifar100\n  data_files:\n  - split: train\n    path: cifar100/train-*\n  - split: test\n    path: cifar100/test-*\n  default: true\n---\n \n# Dataset Card for CIFAR-100\n\n## Table of Contents\n- [Dataset Description](#dataset-description)\n  - [Dataset Summary](#dataset-summary)\n  - [Supported Tasks and Leaderboards](#supported-tasks-and-leaderboards)\n  - [Languages](#languages)\n- [Dataset Structure](#dataset-structure)\n  - [Data Instances](#data-instances)\n  - [Data Fields](#data-fields)\n  - [Data Splits](#data-splits)\n- [Dataset Creation](#dataset-creation)\n  - [Curation Rationale](#curation-rationale)\n  - [Source Data](#source-data)\n  - [Annotations](#annotations)\n  - [Personal and Sensitive Information](#personal-and-sensitive-information)\n- [Considerations for Using the Data](#considerations-for-using-the-data)\n  - [Social Impact of Dataset](#social-impact-of-dataset)\n  - [Discussion of Biases](#discussion-of-biases)\n  - [Other Known Limitations](#other-known-limitations)\n- [Additional Information](#additional-information)\n  - [Dataset Curators](#dataset-curators)\n  - [Licensing Information](#licensing-information)\n  - [Citation Information](#citation-information)\n  - [Contributions](#contributions)\n\n## Dataset Description\n\n- **Homepage:** [CIFAR Datasets](https://www.cs.toronto.edu/~kriz/cifar.html)\n- **Repository:** \n- **Paper:** [Paper](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf)\n- **Leaderboard:**\n- **Point of Contact:**\n \n### Dataset Summary\n \nThe CIFAR-100 dataset consists of 60000 32x32 colour images in 100 classes, with 600 images\nper class. There are 500 training images and 100 testing images per class. There are 50000 training images and 10000 test images. The 100 classes are grouped into 20 superclasses. \nThere are two labels per image - fine label (actual class) and coarse label (superclass).\n\n### Supported Tasks and Leaderboards\n\n- `image-classification`: The goal of this task is to classify a given image into one of 100 classes. The leaderboard is available [here](https://paperswithcode.com/sota/image-classification-on-cifar-100).\n\n### Languages\n\nEnglish\n\n## Dataset Structure\n\n### Data Instances\n\nA sample from the training set is provided below:\n\n```\n{\n  'img': <PIL.PngImagePlugin.PngImageFile image mode=RGB size=32x32 at 0x2767F58E080>, 'fine_label': 19,\n  'coarse_label': 11\n}\n```\n\n### Data Fields\n\n- `img`: A `PIL.Image.Image` object containing the 32x32 image. Note that when accessing the image column: `dataset[0][\"image\"]` the image file is automatically decoded. Decoding of a large number of image files might take a significant amount of time. Thus it is important to first query the sample index before the `\"image\"` column, *i.e.* `dataset[0][\"image\"]` should **always** be preferred over `dataset[\"image\"][0]`\n- `fine_label`: an `int` classification label with the following mapping:\n\n  `0`: apple\n\n  `1`: aquarium_fish\n\n  `2`: baby\n\n  `3`: bear\n\n  `4`: beaver\n  \n  `5`: bed\n\n  `6`: bee\n\n  `7`: beetle\n\n  `8`: bicycle\n\n  `9`: bottle\n\n  `10`: bowl\n\n  `11`: boy\n\n  `12`: bridge\n\n  `13`: bus\n\n  `14`: butterfly\n\n  `15`: camel\n\n  `16`: can\n\n  `17`: castle\n\n  `18`: caterpillar\n\n  `19`: cattle\n\n  `20`: chair\n\n  `21`: chimpanzee\n\n  `22`: clock\n\n  `23`: cloud\n\n  `24`: cockroach\n\n  `25`: couch\n\n  `26`: cra\n\n  `27`: crocodile\n\n  `28`: cup\n\n  `29`: dinosaur\n\n  `30`: dolphin\n\n  `31`: elephant\n\n  `32`: flatfish\n\n  `33`: forest\n\n  `34`: fox\n\n  `35`: girl\n\n  `36`: hamster\n\n  `37`: house\n\n  `38`: kangaroo\n\n  `39`: keyboard\n\n  `40`: lamp\n\n  `41`: lawn_mower\n\n  `42`: leopard\n\n  `43`: lion\n\n  `44`: lizard\n\n  `45`: lobster\n\n  `46`: man\n\n  `47`: maple_tree\n\n  `48`: motorcycle\n\n  `49`: mountain\n\n  `50`: mouse\n\n  `51`: mushroom\n\n  `52`: oak_tree\n\n  `53`: orange\n\n  `54`: orchid\n\n  `55`: otter\n\n  `56`: palm_tree\n\n  `57`: pear\n\n  `58`: pickup_truck\n\n  `59`: pine_tree\n\n  `60`: plain\n\n  `61`: plate\n\n  `62`: poppy\n\n  `63`: porcupine\n\n  `64`: possum\n\n  `65`: rabbit\n\n  `66`: raccoon\n\n  `67`: ray\n\n  `68`: road\n\n  `69`: rocket\n\n  `70`: rose\n\n  `71`: sea\n\n  `72`: seal\n\n  `73`: shark\n\n  `74`: shrew\n\n  `75`: skunk\n\n  `76`: skyscraper\n\n  `77`: snail\n\n  `78`: snake\n\n  `79`: spider\n\n  `80`: squirrel\n\n  `81`: streetcar\n\n  `82`: sunflower\n\n  `83`: sweet_pepper\n\n  `84`: table\n\n  `85`: tank\n\n  `86`: telephone\n\n  `87`: television\n\n  `88`: tiger\n\n  `89`: tractor\n\n  `90`: train\n\n  `91`: trout\n\n  `92`: tulip\n\n  `93`: turtle\n\n  `94`: wardrobe\n\n  `95`: whale\n\n  `96`: willow_tree\n\n  `97`: wolf\n\n  `98`: woman\n\n  `99`: worm\n\n- `coarse_label`: an `int` coarse classification label with following mapping:\n\n  `0`: aquatic_mammals\n\n  `1`: fish\n\n  `2`: flowers\n\n  `3`: food_containers\n\n  `4`: fruit_and_vegetables\n\n  `5`: household_electrical_devices\n\n  `6`: household_furniture\n\n  `7`: insects\n\n  `8`: large_carnivores\n\n  `9`: large_man-made_outdoor_things\n\n  `10`: large_natural_outdoor_scenes\n\n  `11`: large_omnivores_and_herbivores\n\n  `12`: medium_mammals\n\n  `13`: non-insect_invertebrates\n\n  `14`: people\n\n  `15`: reptiles\n\n  `16`: small_mammals\n\n  `17`: trees\n\n  `18`: vehicles_1\n\n  `19`: vehicles_2\n\n\n \n### Data Splits\n \n|   name   |train|test|\n|----------|----:|---------:|\n|cifar100|50000|     10000|\n \n## Dataset Creation\n \n### Curation Rationale\n \n[More Information Needed]\n \n### Source Data\n \n#### Initial Data Collection and Normalization\n \n[More Information Needed]\n \n#### Who are the source language producers?\n \n[More Information Needed]\n \n### Annotations\n \n#### Annotation process\n \n[More Information Needed]\n \n#### Who are the annotators?\n \n[More Information Needed]\n \n### Personal and Sensitive Information\n \n[More Information Needed]\n \n## Considerations for Using the Data\n \n### Social Impact of Dataset\n \n[More Information Needed]\n \n### Discussion of Biases\n \n[More Information Needed]\n \n### Other Known Limitations\n \n[More Information Needed]\n \n## Additional Information\n \n### Dataset Curators\n \n[More Information Needed]\n \n### Licensing Information\n \n[More Information Needed]\n \n### Citation Information\n \n```\n@TECHREPORT{Krizhevsky09learningmultiple,\n    author = {Alex Krizhevsky},\n    title = {Learning multiple layers of features from tiny images},\n    institution = {},\n    year = {2009}\n}\n```\n\n### Contributions\n\nThanks to [@gchhablani](https://github.com/gchablani) for adding this dataset.",
+              "extracted_code": ""
+            },
+            {
+              "id": "tanganke/cifar100",
+              "author": "tanganke",
+              "sha": "7de7416777eb0bca0194ab35ac1c1b297f1d6b26",
+              "created_at": "2024-09-23T13:10:03+00:00",
+              "last_modified": "2024-09-23T13:10:15+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 1996,
+              "likes": 0,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "data/test-00000-of-00001.parquet"
+                },
+                {
+                  "rfilename": "data/train-00000-of-00001.parquet"
+                }
+              ],
+              "card_data": {
+                "language": [],
+                "tags": [],
+                "datasets": [],
+                "task_categories": [],
+                "size_categories": [],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "size_categories:10K<n<100K",
+                "format:parquet",
+                "modality:image",
+                "library:datasets",
+                "library:pandas",
+                "library:mlcroissant",
+                "library:polars",
+                "region:us"
+              ],
+              "readme": "---\ndataset_info:\n  features:\n  - name: image\n    dtype: image\n  - name: label\n    dtype:\n      class_label:\n        names:\n          '0': apple\n          '1': aquarium_fish\n          '2': baby\n          '3': bear\n          '4': beaver\n          '5': bed\n          '6': bee\n          '7': beetle\n          '8': bicycle\n          '9': bottle\n          '10': bowl\n          '11': boy\n          '12': bridge\n          '13': bus\n          '14': butterfly\n          '15': camel\n          '16': can\n          '17': castle\n          '18': caterpillar\n          '19': cattle\n          '20': chair\n          '21': chimpanzee\n          '22': clock\n          '23': cloud\n          '24': cockroach\n          '25': couch\n          '26': cra\n          '27': crocodile\n          '28': cup\n          '29': dinosaur\n          '30': dolphin\n          '31': elephant\n          '32': flatfish\n          '33': forest\n          '34': fox\n          '35': girl\n          '36': hamster\n          '37': house\n          '38': kangaroo\n          '39': keyboard\n          '40': lamp\n          '41': lawn_mower\n          '42': leopard\n          '43': lion\n          '44': lizard\n          '45': lobster\n          '46': man\n          '47': maple_tree\n          '48': motorcycle\n          '49': mountain\n          '50': mouse\n          '51': mushroom\n          '52': oak_tree\n          '53': orange\n          '54': orchid\n          '55': otter\n          '56': palm_tree\n          '57': pear\n          '58': pickup_truck\n          '59': pine_tree\n          '60': plain\n          '61': plate\n          '62': poppy\n          '63': porcupine\n          '64': possum\n          '65': rabbit\n          '66': raccoon\n          '67': ray\n          '68': road\n          '69': rocket\n          '70': rose\n          '71': sea\n          '72': seal\n          '73': shark\n          '74': shrew\n          '75': skunk\n          '76': skyscraper\n          '77': snail\n          '78': snake\n          '79': spider\n          '80': squirrel\n          '81': streetcar\n          '82': sunflower\n          '83': sweet_pepper\n          '84': table\n          '85': tank\n          '86': telephone\n          '87': television\n          '88': tiger\n          '89': tractor\n          '90': train\n          '91': trout\n          '92': tulip\n          '93': turtle\n          '94': wardrobe\n          '95': whale\n          '96': willow_tree\n          '97': wolf\n          '98': woman\n          '99': worm\n  splits:\n  - name: train\n    num_bytes: 112145106.0\n    num_examples: 50000\n  - name: test\n    num_bytes: 22484261.0\n    num_examples: 10000\n  download_size: 142006370\n  dataset_size: 134629367.0\nconfigs:\n- config_name: default\n  data_files:\n  - split: train\n    path: data/train-*\n  - split: test\n    path: data/test-*\n---\n",
+              "extracted_code": ""
+            },
+            {
+              "id": "tanganke/cifar10",
+              "author": "tanganke",
+              "sha": "97b332c7b2981f9decda4ba9abac76ef18bb0636",
+              "created_at": "2024-09-23T13:11:52+00:00",
+              "last_modified": "2024-09-23T13:12:03+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 1636,
+              "likes": 0,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "data/test-00000-of-00001.parquet"
+                },
+                {
+                  "rfilename": "data/train-00000-of-00001.parquet"
+                }
+              ],
+              "card_data": {
+                "language": [],
+                "tags": [],
+                "datasets": [],
+                "task_categories": [],
+                "size_categories": [],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "size_categories:10K<n<100K",
+                "format:parquet",
+                "modality:image",
+                "library:datasets",
+                "library:pandas",
+                "library:mlcroissant",
+                "library:polars",
+                "region:us"
+              ],
+              "readme": "---\ndataset_info:\n  features:\n  - name: image\n    dtype: image\n  - name: label\n    dtype:\n      class_label:\n        names:\n          '0': airplane\n          '1': automobile\n          '2': bird\n          '3': cat\n          '4': deer\n          '5': dog\n          '6': frog\n          '7': horse\n          '8': ship\n          '9': truck\n  splits:\n  - name: train\n    num_bytes: 113648310.0\n    num_examples: 50000\n  - name: test\n    num_bytes: 22731580.0\n    num_examples: 10000\n  download_size: 143650937\n  dataset_size: 136379890.0\nconfigs:\n- config_name: default\n  data_files:\n  - split: train\n    path: data/train-*\n  - split: test\n    path: data/test-*\n---\n",
+              "extracted_code": ""
+            },
+            {
+              "id": "kjj0/cifar10-multirun-logits",
+              "author": "kjj0",
+              "sha": "12b0953f0bedba426e52926723a387d4118155bf",
+              "created_at": "2024-01-14T07:46:15+00:00",
+              "last_modified": "2024-01-14T20:54:31+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 772,
+              "likes": 0,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "failure_mod.png"
+                },
+                {
+                  "rfilename": "failure_mode.png"
+                },
+                {
+                  "rfilename": "kernel_pairs_600_650.png"
+                },
+                {
+                  "rfilename": "logs_saveoutputs_main/06109e85-f5d7-4ac8-b0b0-f03542f23234/log.pt"
+                },
+                {
+                  "rfilename": "logs_saveoutputs_main/11d70b53-ab98-4532-903e-033cc13008a6/log.pt"
+                },
+                {
+                  "rfilename": "logs_saveoutputs_main/17ed0d5c-6ae6-442f-99e9-5372b7323918/log.pt"
+                },
+                {
+                  "rfilename": "logs_saveoutputs_main/1b422ca2-98a9-408b-8730-0bff402184c2/log.pt"
+                },
+                {
+                  "rfilename": "logs_saveoutputs_main/236c93bd-a1ab-4b7d-88c1-4b9bed2ece6b/log.pt"
+                }
+              ],
+              "card_data": {
+                "license": "mit",
+                "language": [],
+                "tags": [],
+                "datasets": [],
+                "task_categories": [],
+                "size_categories": [],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "license:mit",
+                "size_categories:n<1K",
+                "format:imagefolder",
+                "modality:image",
+                "library:datasets",
+                "library:mlcroissant",
+                "arxiv:2303.14186",
+                "arxiv:2202.00622",
+                "region:us"
+              ],
+              "readme": "---\nlicense: mit\n---\n\n# A kernel function which improves the accuracy and interpretability of large ensembles of neural networks\n\nWe describe a new kernel (i.e. similarity function between pairs of examples) which is computed using an ensemble of neural networks. It has the following properties:\n\n- Using it to predict test labels (via k-nearest neighbors across the training set) yields even higher accuracy than the standard ensemble inference method\nof averaging predictions, once the number of networks exceeds about 100. We believe this kernel + k-NN method is the state-of-the-art for inferencing large ensembles\n(although such ensembles are rarely used in practice).\n- Being a similarity function, it is highly interpretable. For each test example, it allows us to visualize training examples which are deemed to have\nsimilar features by the training process, with much greater fidelity than e.g. penultimate layer embeddings. For instance, we use this to identify the (known) fact that\n~10% of the CIFAR-10 test-set examples have a near-duplicate in the training set, and to identify a failure mode.\n\nTo compute the kernel for an ensemble of n=500 models, we provide the following simple code (which can be copy-paste run in your environment).\n\n```\nimport torch\nimport torchvision\nimport huggingface_hub\n\ndef normalize(logits):\n    logits = logits.float()\n    logits = logits.log_softmax(-1)\n    logits = (logits - logits.mean(0, keepdim=True)) / logits.std(0, keepdim=True)\n    return logits\n\ndef compute_kernel(logits1, logits2):\n    \n    logits1 = normalize(logits1)\n    logits2 = normalize(logits2)\n    assert len(logits1) == len(logits2)\n    \n    kernel = torch.zeros(logits1.shape[1], logits2.shape[1]).cuda()\n    for c in range(10):\n        logits1_cls = logits1[..., c].cuda()\n        logits2_cls = logits2[..., c].cuda()\n        corr_cls = (logits1_cls.T @ logits2_cls) / len(logits1)\n        kernel += corr_cls / 10\n    return kernel\n\n######################################################################################\n#  Setup: Download CIFAR-10 labels and the outputs from 500 repeated training runs.  #\n######################################################################################\n\nlabels_train = torch.tensor(torchvision.datasets.CIFAR10('cifar10', train=True).targets)\nlabels_test = torch.tensor(torchvision.datasets.CIFAR10('cifar10', train=False).targets)\n\napi = huggingface_hub.HfApi()\nfname = 'logs_saveoutputs_main/06109e85-f5d7-4ac8-b0b0-f03542f23234/log.pt'\nobj_path = api.hf_hub_download('kjj0/cifar10-multirun-logits', repo_type='dataset',\n                               filename=fname)\nobj = torch.load(obj_path, map_location='cpu')\n\n# print(obj['code']) # Uncomment if you want to see the training code\n\n######################################################################################\n#     Evaluate both the per-model and ensembled accuracy of the training outputs.    #\n######################################################################################\n\neach_acc = (obj['logits'].argmax(-1) == labels_test).float().mean(1)\navg_acc = each_acc.mean()\nprint('average single-model accuracy \\t: %.2f' % (100 * avg_acc))\n\nens_pred = obj['logits'].mean(0).argmax(1)\nens_acc = (ens_pred == labels_test).float().mean()\nprint('ensemble accuracy (%d models) \\t: %.2f' % (len(obj['logits']), 100 * ens_acc))\n# (n.b. averaging probabilities instead of logits makes no difference)\n\n######################################################################################\n#               Evaluate the new kernel / ensemble inference method.                 #\n######################################################################################\n\n# use correlations between log_softmax outputs as a similarity metric for k-NN inference.\nkernel = compute_kernel(obj['logits'], obj['logits_train'])\nk = 3\nnbrs = kernel.topk(k, dim=1)\nnbr_labels = labels_train[nbrs.indices.cpu()]\npred = nbr_labels.mode(1).values\nacc = (pred == labels_test).float().mean()\nprint('kernel accuracy (k-NN w/ k=%d) \\t: %.2f' % (k, 100 * acc))\n\n## average single-model accuracy   : 93.26\n## ensemble accuracy (500 models)  : 94.69\n## kernel accuracy (k-NN w/ k=3)   : 95.01\n```\n\nThe training configuration we used to generate these 500 models (i.e. the script that we re-ran 500 times with different random seeds) yields a mean accuracy of 93.26%.\nIf we average the predictions across those 500 models, we attain a much improved accuracy of 94.69%.\nIf we predict the test-set labels using our kernel applied to pairs of (train, test) examples, using k-nearest neighbors with k=3,\nthen we attain an even higher accuracy of 95.01%.\n\nWe include 20,000 total runs of training for the same training configuration that generated the 500 runs used in the above.\nThe outputs of those runs (i.e. the logits predicted by the final model on the training and test examples) can be found as the other files in `logs_saveoutputs_main`.\nIf we compute the kernel with all 20,000 runs instead of 500, and use a weighting scheme based on the correlation values,\nthen the accuracy can be futher increased to 95.53%.\nNote that increasing from 500 to 20,000 does not improve the accuracy of the averaged predictions,\nso with 95.53% we have reached 0.84% higher than the standard ensemble accuracy.\n\nWe additionally include outputs from three other training configurations; their kernels seem to have the same properties.\n\n## Interpretability-type applications\n\n### Finding similar pairs\n\n(Below:) We rank the CIFAR-10 test-set examples by their similarity to their most similar training-set example.\nWe show the 601th-648th most highly ranked test examples (out of 10,000), along with their matched training examples.\nMany of them turn out to be visually similar pairs.\n\n![the 600-650th most similar pairs](kernel_pairs_600_650.png)\n\nWe note that the penultimate-layer features almost entirely lack this property --\nif we visualize the most similar pairs across all (test, train) pairs according to distance in penultimate feature space,\nwe will get not duplicates but instead just random highly confident examples which have all presumably collapsed to a similar point in space.\nOn the other hand, pairs which are given a high similarity score by our correlation kernel turn out to often be near-duplicates, and this holds true\nfor the most similar pairs even when we reduce the number of models in the ensemble down to a relatively small value like 10 or 20.\n\n### Diagnosing failure modes\n\n(Below:) We rank the CIFAR-10 test examples by how similar their most similar training-set example is, and then filter for cases where they have different labels.\nThe first (leftmost) column contains the top 8 such test examples, and then subsequent columns are their 9 nearest neighbors in the training set.\nIt appears that our network has difficulty seeing small objects.\n\n![the highest-confidence failures](failure_mode.png)\n\n### Some random examples\n\n(Below:) We select 10 CIFAR-10 test examples at random (the first row), and display their two nearest neighbors according to the kernel (second two rows),\nand the penultimate features from a single model (next two rows). The kernel yields images which are perceptually similar, whereas penultimate features\nselect nearly a random image of the same label.\n\n![randomly chosen test examples, with their most similar train examples](random_pairs.png)\n\n## Open questions\n\n* The usage of `log_softmax` in the normalization step seems to be important, especially for making the kernel work with n < 1,000 (where n is the number of networks).\nBut for n -> infty, it becomes less important. Why -- is it somehow removing noise?\n* Via the Neural Network Gaussian Process (NNGP) theory, it is possible to compute the expectation of this kernel for untrained / newly initialized networks\n(at least if the log-softmax is removed). Is there any general theory for what this kernel becomes after training (i.e., what we are seeing here)?\n* This kernel is implemented as a sum of 10 correlation kernels -- one for each class. But upon inspection, each of those has dramatically worse\nk-NN accuracy than their sum, at least until n becomes on the order of thousands. Why?\n* Removing log-softmax, despite harming the overall accuracy as discussed earlier,\napparently increases the k-NN accuracy (and generally quality) of the individual kernels. Why??\n* How does this kernel compare to [TRAK](https://arxiv.org/abs/2303.14186)\nor the datamodel embeddings from [https://arxiv.org/abs/2202.00622](https://arxiv.org/abs/2202.00622)?\n\n",
+              "extracted_code": "import torch\nimport torchvision\nimport huggingface_hub\n\ndef normalize(logits):\n    logits = logits.float()\n    logits = logits.log_softmax(-1)\n    logits = (logits - logits.mean(0, keepdim=True)) / logits.std(0, keepdim=True)\n    return logits\n\ndef compute_kernel(logits1, logits2):\n    \n    logits1 = normalize(logits1)\n    logits2 = normalize(logits2)\n    assert len(logits1) == len(logits2)\n    \n    kernel = torch.zeros(logits1.shape[1], logits2.shape[1]).cuda()\n    for c in range(10):\n        logits1_cls = logits1[..., c].cuda()\n        logits2_cls = logits2[..., c].cuda()\n        corr_cls = (logits1_cls.T @ logits2_cls) / len(logits1)\n        kernel += corr_cls / 10\n    return kernel\n\n######################################################################################\n#  Setup: Download CIFAR-10 labels and the outputs from 500 repeated training runs.  #\n######################################################################################\n\nlabels_train = torch.tensor(torchvision.datasets.CIFAR10('cifar10', train=True).targets)\nlabels_test = torch.tensor(torchvision.datasets.CIFAR10('cifar10', train=False).targets)\n\napi = huggingface_hub.HfApi()\nfname = 'logs_saveoutputs_main/06109e85-f5d7-4ac8-b0b0-f03542f23234/log.pt'\nobj_path = api.hf_hub_download('kjj0/cifar10-multirun-logits', repo_type='dataset',\n                               filename=fname)\nobj = torch.load(obj_path, map_location='cpu')\n\n# print(obj['code']) # Uncomment if you want to see the training code\n\n######################################################################################\n#     Evaluate both the per-model and ensembled accuracy of the training outputs.    #\n######################################################################################\n\neach_acc = (obj['logits'].argmax(-1) == labels_test).float().mean(1)\navg_acc = each_acc.mean()\nprint('average single-model accuracy \\t: %.2f' % (100 * avg_acc))\n\nens_pred = obj['logits'].mean(0).argmax(1)\nens_acc = (ens_pred == labels_test).float().mean()\nprint('ensemble accuracy (%d models) \\t: %.2f' % (len(obj['logits']), 100 * ens_acc))\n# (n.b. averaging probabilities instead of logits makes no difference)\n\n######################################################################################\n#               Evaluate the new kernel / ensemble inference method.                 #\n######################################################################################\n\n# use correlations between log_softmax outputs as a similarity metric for k-NN inference.\nkernel = compute_kernel(obj['logits'], obj['logits_train'])\nk = 3\nnbrs = kernel.topk(k, dim=1)\nnbr_labels = labels_train[nbrs.indices.cpu()]\npred = nbr_labels.mode(1).values\nacc = (pred == labels_test).float().mean()\nprint('kernel accuracy (k-NN w/ k=%d) \\t: %.2f' % (k, 100 * acc))\n\n## average single-model accuracy   : 93.26\n## ensemble accuracy (500 models)  : 94.69\n## kernel accuracy (k-NN w/ k=3)   : 95.01"
+            },
+            {
+              "id": "noahshinn/cifar100_2_to_100",
+              "author": "noahshinn",
+              "sha": "59290dd1e06a6a7bc7076e7d40cfde2071fdf8e9",
+              "created_at": "2023-12-27T07:14:29+00:00",
+              "last_modified": "2023-12-27T08:05:03+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 353,
+              "likes": 0,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "data/cifar100_10-00000-of-00001-9246a59c2f5d649f.parquet"
+                },
+                {
+                  "rfilename": "data/cifar100_100-00000-of-00001-bf4c65eeee8b47b4.parquet"
+                },
+                {
+                  "rfilename": "data/cifar100_11-00000-of-00001-cec525e4a00b1176.parquet"
+                },
+                {
+                  "rfilename": "data/cifar100_12-00000-of-00001-8e5a3920a72c06d5.parquet"
+                },
+                {
+                  "rfilename": "data/cifar100_13-00000-of-00001-da00a09bdce6b761.parquet"
+                },
+                {
+                  "rfilename": "data/cifar100_14-00000-of-00001-ccf0583d7dae1782.parquet"
+                },
+                {
+                  "rfilename": "data/cifar100_15-00000-of-00001-ea1d72400aecb8b5.parquet"
+                },
+                {
+                  "rfilename": "data/cifar100_16-00000-of-00001-2ce2a7d3a8943e3f.parquet"
+                }
+              ],
+              "card_data": {
+                "language": [],
+                "tags": [],
+                "datasets": [],
+                "task_categories": [],
+                "size_categories": [],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "size_categories:1M<n<10M",
+                "format:parquet",
+                "modality:image",
+                "library:datasets",
+                "library:pandas",
+                "library:mlcroissant",
+                "library:polars",
+                "region:us"
+              ],
+              "readme": "---\nconfigs:\n- config_name: default\n  data_files:\n  - split: cifar100_2\n    path: data/cifar100_2-*\n  - split: cifar100_3\n    path: data/cifar100_3-*\n  - split: cifar100_4\n    path: data/cifar100_4-*\n  - split: cifar100_5\n    path: data/cifar100_5-*\n  - split: cifar100_6\n    path: data/cifar100_6-*\n  - split: cifar100_7\n    path: data/cifar100_7-*\n  - split: cifar100_8\n    path: data/cifar100_8-*\n  - split: cifar100_9\n    path: data/cifar100_9-*\n  - split: cifar100_10\n    path: data/cifar100_10-*\n  - split: cifar100_11\n    path: data/cifar100_11-*\n  - split: cifar100_12\n    path: data/cifar100_12-*\n  - split: cifar100_13\n    path: data/cifar100_13-*\n  - split: cifar100_14\n    path: data/cifar100_14-*\n  - split: cifar100_15\n    path: data/cifar100_15-*\n  - split: cifar100_16\n    path: data/cifar100_16-*\n  - split: cifar100_17\n    path: data/cifar100_17-*\n  - split: cifar100_18\n    path: data/cifar100_18-*\n  - split: cifar100_19\n    path: data/cifar100_19-*\n  - split: cifar100_20\n    path: data/cifar100_20-*\n  - split: cifar100_21\n    path: data/cifar100_21-*\n  - split: cifar100_22\n    path: data/cifar100_22-*\n  - split: cifar100_23\n    path: data/cifar100_23-*\n  - split: cifar100_24\n    path: data/cifar100_24-*\n  - split: cifar100_25\n    path: data/cifar100_25-*\n  - split: cifar100_26\n    path: data/cifar100_26-*\n  - split: cifar100_27\n    path: data/cifar100_27-*\n  - split: cifar100_28\n    path: data/cifar100_28-*\n  - split: cifar100_29\n    path: data/cifar100_29-*\n  - split: cifar100_30\n    path: data/cifar100_30-*\n  - split: cifar100_31\n    path: data/cifar100_31-*\n  - split: cifar100_32\n    path: data/cifar100_32-*\n  - split: cifar100_33\n    path: data/cifar100_33-*\n  - split: cifar100_34\n    path: data/cifar100_34-*\n  - split: cifar100_35\n    path: data/cifar100_35-*\n  - split: cifar100_36\n    path: data/cifar100_36-*\n  - split: cifar100_37\n    path: data/cifar100_37-*\n  - split: cifar100_38\n    path: data/cifar100_38-*\n  - split: cifar100_39\n    path: data/cifar100_39-*\n  - split: cifar100_40\n    path: data/cifar100_40-*\n  - split: cifar100_41\n    path: data/cifar100_41-*\n  - split: cifar100_42\n    path: data/cifar100_42-*\n  - split: cifar100_43\n    path: data/cifar100_43-*\n  - split: cifar100_44\n    path: data/cifar100_44-*\n  - split: cifar100_45\n    path: data/cifar100_45-*\n  - split: cifar100_46\n    path: data/cifar100_46-*\n  - split: cifar100_47\n    path: data/cifar100_47-*\n  - split: cifar100_48\n    path: data/cifar100_48-*\n  - split: cifar100_49\n    path: data/cifar100_49-*\n  - split: cifar100_50\n    path: data/cifar100_50-*\n  - split: cifar100_51\n    path: data/cifar100_51-*\n  - split: cifar100_52\n    path: data/cifar100_52-*\n  - split: cifar100_53\n    path: data/cifar100_53-*\n  - split: cifar100_54\n    path: data/cifar100_54-*\n  - split: cifar100_55\n    path: data/cifar100_55-*\n  - split: cifar100_56\n    path: data/cifar100_56-*\n  - split: cifar100_57\n    path: data/cifar100_57-*\n  - split: cifar100_58\n    path: data/cifar100_58-*\n  - split: cifar100_59\n    path: data/cifar100_59-*\n  - split: cifar100_60\n    path: data/cifar100_60-*\n  - split: cifar100_61\n    path: data/cifar100_61-*\n  - split: cifar100_62\n    path: data/cifar100_62-*\n  - split: cifar100_63\n    path: data/cifar100_63-*\n  - split: cifar100_64\n    path: data/cifar100_64-*\n  - split: cifar100_65\n    path: data/cifar100_65-*\n  - split: cifar100_66\n    path: data/cifar100_66-*\n  - split: cifar100_67\n    path: data/cifar100_67-*\n  - split: cifar100_68\n    path: data/cifar100_68-*\n  - split: cifar100_69\n    path: data/cifar100_69-*\n  - split: cifar100_70\n    path: data/cifar100_70-*\n  - split: cifar100_71\n    path: data/cifar100_71-*\n  - split: cifar100_72\n    path: data/cifar100_72-*\n  - split: cifar100_73\n    path: data/cifar100_73-*\n  - split: cifar100_74\n    path: data/cifar100_74-*\n  - split: cifar100_75\n    path: data/cifar100_75-*\n  - split: cifar100_76\n    path: data/cifar100_76-*\n  - split: cifar100_77\n    path: data/cifar100_77-*\n  - split: cifar100_78\n    path: data/cifar100_78-*\n  - split: cifar100_79\n    path: data/cifar100_79-*\n  - split: cifar100_80\n    path: data/cifar100_80-*\n  - split: cifar100_81\n    path: data/cifar100_81-*\n  - split: cifar100_82\n    path: data/cifar100_82-*\n  - split: cifar100_83\n    path: data/cifar100_83-*\n  - split: cifar100_84\n    path: data/cifar100_84-*\n  - split: cifar100_85\n    path: data/cifar100_85-*\n  - split: cifar100_86\n    path: data/cifar100_86-*\n  - split: cifar100_87\n    path: data/cifar100_87-*\n  - split: cifar100_88\n    path: data/cifar100_88-*\n  - split: cifar100_89\n    path: data/cifar100_89-*\n  - split: cifar100_90\n    path: data/cifar100_90-*\n  - split: cifar100_91\n    path: data/cifar100_91-*\n  - split: cifar100_92\n    path: data/cifar100_92-*\n  - split: cifar100_93\n    path: data/cifar100_93-*\n  - split: cifar100_94\n    path: data/cifar100_94-*\n  - split: cifar100_95\n    path: data/cifar100_95-*\n  - split: cifar100_96\n    path: data/cifar100_96-*\n  - split: cifar100_97\n    path: data/cifar100_97-*\n  - split: cifar100_98\n    path: data/cifar100_98-*\n  - split: cifar100_99\n    path: data/cifar100_99-*\n  - split: cifar100_100\n    path: data/cifar100_100-*\ndataset_info:\n  features:\n  - name: img\n    dtype: image\n  - name: fine_label\n    dtype:\n      class_label:\n        names:\n          '0': apple\n          '1': aquarium_fish\n          '2': baby\n          '3': bear\n          '4': beaver\n          '5': bed\n          '6': bee\n          '7': beetle\n          '8': bicycle\n          '9': bottle\n          '10': bowl\n          '11': boy\n          '12': bridge\n          '13': bus\n          '14': butterfly\n          '15': camel\n          '16': can\n          '17': castle\n          '18': caterpillar\n          '19': cattle\n          '20': chair\n          '21': chimpanzee\n          '22': clock\n          '23': cloud\n          '24': cockroach\n          '25': couch\n          '26': cra\n          '27': crocodile\n          '28': cup\n          '29': dinosaur\n          '30': dolphin\n          '31': elephant\n          '32': flatfish\n          '33': forest\n          '34': fox\n          '35': girl\n          '36': hamster\n          '37': house\n          '38': kangaroo\n          '39': keyboard\n          '40': lamp\n          '41': lawn_mower\n          '42': leopard\n          '43': lion\n          '44': lizard\n          '45': lobster\n          '46': man\n          '47': maple_tree\n          '48': motorcycle\n          '49': mountain\n          '50': mouse\n          '51': mushroom\n          '52': oak_tree\n          '53': orange\n          '54': orchid\n          '55': otter\n          '56': palm_tree\n          '57': pear\n          '58': pickup_truck\n          '59': pine_tree\n          '60': plain\n          '61': plate\n          '62': poppy\n          '63': porcupine\n          '64': possum\n          '65': rabbit\n          '66': raccoon\n          '67': ray\n          '68': road\n          '69': rocket\n          '70': rose\n          '71': sea\n          '72': seal\n          '73': shark\n          '74': shrew\n          '75': skunk\n          '76': skyscraper\n          '77': snail\n          '78': snake\n          '79': spider\n          '80': squirrel\n          '81': streetcar\n          '82': sunflower\n          '83': sweet_pepper\n          '84': table\n          '85': tank\n          '86': telephone\n          '87': television\n          '88': tiger\n          '89': tractor\n          '90': train\n          '91': trout\n          '92': tulip\n          '93': turtle\n          '94': wardrobe\n          '95': whale\n          '96': willow_tree\n          '97': wolf\n          '98': woman\n          '99': worm\n  - name: coarse_label\n    dtype:\n      class_label:\n        names:\n          '0': aquatic_mammals\n          '1': fish\n          '2': flowers\n          '3': food_containers\n          '4': fruit_and_vegetables\n          '5': household_electrical_devices\n          '6': household_furniture\n          '7': insects\n          '8': large_carnivores\n          '9': large_man-made_outdoor_things\n          '10': large_natural_outdoor_scenes\n          '11': large_omnivores_and_herbivores\n          '12': medium_mammals\n          '13': non-insect_invertebrates\n          '14': people\n          '15': reptiles\n          '16': small_mammals\n          '17': trees\n          '18': vehicles_1\n          '19': vehicles_2\n  splits:\n  - name: cifar100_2\n    num_bytes: 2250027.12\n    num_examples: 1000\n  - name: cifar100_3\n    num_bytes: 3375040.68\n    num_examples: 1500\n  - name: cifar100_4\n    num_bytes: 4500054.24\n    num_examples: 2000\n  - name: cifar100_5\n    num_bytes: 5625067.8\n    num_examples: 2500\n  - name: cifar100_6\n    num_bytes: 6750081.36\n    num_examples: 3000\n  - name: cifar100_7\n    num_bytes: 7875094.92\n    num_examples: 3500\n  - name: cifar100_8\n    num_bytes: 9000108.48\n    num_examples: 4000\n  - name: cifar100_9\n    num_bytes: 10125122.04\n    num_examples: 4500\n  - name: cifar100_10\n    num_bytes: 11250135.6\n    num_examples: 5000\n  - name: cifar100_11\n    num_bytes: 12375149.16\n    num_examples: 5500\n  - name: cifar100_12\n    num_bytes: 13500162.72\n    num_examples: 6000\n  - name: cifar100_13\n    num_bytes: 14625176.28\n    num_examples: 6500\n  - name: cifar100_14\n    num_bytes: 15750189.84\n    num_examples: 7000\n  - name: cifar100_15\n    num_bytes: 16875203.4\n    num_examples: 7500\n  - name: cifar100_16\n    num_bytes: 18000216.96\n    num_examples: 8000\n  - name: cifar100_17\n    num_bytes: 19125230.52\n    num_examples: 8500\n  - name: cifar100_18\n    num_bytes: 20250244.08\n    num_examples: 9000\n  - name: cifar100_19\n    num_bytes: 21375257.64\n    num_examples: 9500\n  - name: cifar100_20\n    num_bytes: 22500271.2\n    num_examples: 10000\n  - name: cifar100_21\n    num_bytes: 23625284.76\n    num_examples: 10500\n  - name: cifar100_22\n    num_bytes: 24750298.32\n    num_examples: 11000\n  - name: cifar100_23\n    num_bytes: 25875311.88\n    num_examples: 11500\n  - name: cifar100_24\n    num_bytes: 27000325.44\n    num_examples: 12000\n  - name: cifar100_25\n    num_bytes: 28125339.0\n    num_examples: 12500\n  - name: cifar100_26\n    num_bytes: 29250352.56\n    num_examples: 13000\n  - name: cifar100_27\n    num_bytes: 30375366.12\n    num_examples: 13500\n  - name: cifar100_28\n    num_bytes: 31500379.68\n    num_examples: 14000\n  - name: cifar100_29\n    num_bytes: 32625393.24\n    num_examples: 14500\n  - name: cifar100_30\n    num_bytes: 33750406.8\n    num_examples: 15000\n  - name: cifar100_31\n    num_bytes: 34875420.36\n    num_examples: 15500\n  - name: cifar100_32\n    num_bytes: 36000433.92\n    num_examples: 16000\n  - name: cifar100_33\n    num_bytes: 37125447.48\n    num_examples: 16500\n  - name: cifar100_34\n    num_bytes: 38250461.04\n    num_examples: 17000\n  - name: cifar100_35\n    num_bytes: 39375474.6\n    num_examples: 17500\n  - name: cifar100_36\n    num_bytes: 40500488.16\n    num_examples: 18000\n  - name: cifar100_37\n    num_bytes: 41625501.72\n    num_examples: 18500\n  - name: cifar100_38\n    num_bytes: 42750515.28\n    num_examples: 19000\n  - name: cifar100_39\n    num_bytes: 43875528.84\n    num_examples: 19500\n  - name: cifar100_40\n    num_bytes: 45000542.4\n    num_examples: 20000\n  - name: cifar100_41\n    num_bytes: 46125555.96\n    num_examples: 20500\n  - name: cifar100_42\n    num_bytes: 47250569.52\n    num_examples: 21000\n  - name: cifar100_43\n    num_bytes: 48375583.08\n    num_examples: 21500\n  - name: cifar100_44\n    num_bytes: 49500596.64\n    num_examples: 22000\n  - name: cifar100_45\n    num_bytes: 50625610.2\n    num_examples: 22500\n  - name: cifar100_46\n    num_bytes: 51750623.76\n    num_examples: 23000\n  - name: cifar100_47\n    num_bytes: 52875637.32\n    num_examples: 23500\n  - name: cifar100_48\n    num_bytes: 54000650.88\n    num_examples: 24000\n  - name: cifar100_49\n    num_bytes: 55125664.44\n    num_examples: 24500\n  - name: cifar100_50\n    num_bytes: 56250678.0\n    num_examples: 25000\n  - name: cifar100_51\n    num_bytes: 57375691.56\n    num_examples: 25500\n  - name: cifar100_52\n    num_bytes: 58500705.12\n    num_examples: 26000\n  - name: cifar100_53\n    num_bytes: 59625718.68\n    num_examples: 26500\n  - name: cifar100_54\n    num_bytes: 60750732.24\n    num_examples: 27000\n  - name: cifar100_55\n    num_bytes: 61875745.8\n    num_examples: 27500\n  - name: cifar100_56\n    num_bytes: 63000759.36\n    num_examples: 28000\n  - name: cifar100_57\n    num_bytes: 64125772.92\n    num_examples: 28500\n  - name: cifar100_58\n    num_bytes: 65250786.48\n    num_examples: 29000\n  - name: cifar100_59\n    num_bytes: 66375800.04\n    num_examples: 29500\n  - name: cifar100_60\n    num_bytes: 67500813.6\n    num_examples: 30000\n  - name: cifar100_61\n    num_bytes: 68625827.16\n    num_examples: 30500\n  - name: cifar100_62\n    num_bytes: 69750840.72\n    num_examples: 31000\n  - name: cifar100_63\n    num_bytes: 70875854.28\n    num_examples: 31500\n  - name: cifar100_64\n    num_bytes: 72000867.84\n    num_examples: 32000\n  - name: cifar100_65\n    num_bytes: 73125881.4\n    num_examples: 32500\n  - name: cifar100_66\n    num_bytes: 74250894.96\n    num_examples: 33000\n  - name: cifar100_67\n    num_bytes: 75375908.52\n    num_examples: 33500\n  - name: cifar100_68\n    num_bytes: 76500922.08\n    num_examples: 34000\n  - name: cifar100_69\n    num_bytes: 77625935.64\n    num_examples: 34500\n  - name: cifar100_70\n    num_bytes: 78750949.2\n    num_examples: 35000\n  - name: cifar100_71\n    num_bytes: 79875962.76\n    num_examples: 35500\n  - name: cifar100_72\n    num_bytes: 81000976.32\n    num_examples: 36000\n  - name: cifar100_73\n    num_bytes: 82125989.88\n    num_examples: 36500\n  - name: cifar100_74\n    num_bytes: 83251003.44\n    num_examples: 37000\n  - name: cifar100_75\n    num_bytes: 84376017.0\n    num_examples: 37500\n  - name: cifar100_76\n    num_bytes: 85501030.56\n    num_examples: 38000\n  - name: cifar100_77\n    num_bytes: 86626044.12\n    num_examples: 38500\n  - name: cifar100_78\n    num_bytes: 87751057.68\n    num_examples: 39000\n  - name: cifar100_79\n    num_bytes: 88876071.24\n    num_examples: 39500\n  - name: cifar100_80\n    num_bytes: 90001084.8\n    num_examples: 40000\n  - name: cifar100_81\n    num_bytes: 91126098.36\n    num_examples: 40500\n  - name: cifar100_82\n    num_bytes: 92251111.92\n    num_examples: 41000\n  - name: cifar100_83\n    num_bytes: 93376125.48\n    num_examples: 41500\n  - name: cifar100_84\n    num_bytes: 94501139.04\n    num_examples: 42000\n  - name: cifar100_85\n    num_bytes: 95626152.6\n    num_examples: 42500\n  - name: cifar100_86\n    num_bytes: 96751166.16\n    num_examples: 43000\n  - name: cifar100_87\n    num_bytes: 97876179.72\n    num_examples: 43500\n  - name: cifar100_88\n    num_bytes: 99001193.28\n    num_examples: 44000\n  - name: cifar100_89\n    num_bytes: 100126206.84\n    num_examples: 44500\n  - name: cifar100_90\n    num_bytes: 101251220.4\n    num_examples: 45000\n  - name: cifar100_91\n    num_bytes: 102376233.96\n    num_examples: 45500\n  - name: cifar100_92\n    num_bytes: 103501247.52\n    num_examples: 46000\n  - name: cifar100_93\n    num_bytes: 104626261.08\n    num_examples: 46500\n  - name: cifar100_94\n    num_bytes: 105751274.64\n    num_examples: 47000\n  - name: cifar100_95\n    num_bytes: 106876288.2\n    num_examples: 47500\n  - name: cifar100_96\n    num_bytes: 108001301.76\n    num_examples: 48000\n  - name: cifar100_97\n    num_bytes: 109126315.32\n    num_examples: 48500\n  - name: cifar100_98\n    num_bytes: 110251328.88\n    num_examples: 49000\n  - name: cifar100_99\n    num_bytes: 111376342.44\n    num_examples: 49500\n  - name: cifar100_100\n    num_bytes: 112501356.0\n    num_examples: 50000\n  download_size: 5989828624\n  dataset_size: 5680193464.44\n---\n# Dataset Card for \"cifar100_2_to_100\"\n\n[More Information needed](https://github.com/huggingface/datasets/blob/main/CONTRIBUTING.md#how-to-contribute-to-the-dataset-cards)",
+              "extracted_code": ""
+            },
+            {
+              "id": "uoft-cs/cifar100",
+              "author": "uoft-cs",
+              "sha": "aadb3af77e9048adbea6b47c21a81e47dd092ae5",
+              "created_at": "2022-03-02T23:29:22+00:00",
+              "last_modified": "2024-01-04T06:57:47+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 12540,
+              "likes": 53,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "cifar100/test-00000-of-00001.parquet"
+                },
+                {
+                  "rfilename": "cifar100/train-00000-of-00001.parquet"
+                }
+              ],
+              "card_data": {
+                "license": [
+                  "unknown"
+                ],
+                "language": [
+                  "en"
+                ],
+                "tags": [],
+                "datasets": [],
+                "task_categories": [
+                  "image-classification"
+                ],
+                "size_categories": [
+                  "10K<n<100K"
+                ],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "task_categories:image-classification",
+                "annotations_creators:crowdsourced",
+                "language_creators:found",
+                "multilinguality:monolingual",
+                "source_datasets:extended|other-80-Million-Tiny-Images",
+                "language:en",
+                "license:unknown",
+                "size_categories:10K<n<100K",
+                "format:parquet",
+                "modality:image",
+                "library:datasets",
+                "library:pandas",
+                "library:mlcroissant",
+                "library:polars",
+                "region:us"
+              ],
+              "readme": "---\nannotations_creators:\n- crowdsourced\nlanguage_creators:\n- found\nlanguage:\n- en\nlicense:\n- unknown\nmultilinguality:\n- monolingual\nsize_categories:\n- 10K<n<100K\nsource_datasets:\n- extended|other-80-Million-Tiny-Images\ntask_categories:\n- image-classification\ntask_ids: []\npaperswithcode_id: cifar-100\npretty_name: Cifar100\ndataset_info:\n  config_name: cifar100\n  features:\n  - name: img\n    dtype: image\n  - name: fine_label\n    dtype:\n      class_label:\n        names:\n          '0': apple\n          '1': aquarium_fish\n          '2': baby\n          '3': bear\n          '4': beaver\n          '5': bed\n          '6': bee\n          '7': beetle\n          '8': bicycle\n          '9': bottle\n          '10': bowl\n          '11': boy\n          '12': bridge\n          '13': bus\n          '14': butterfly\n          '15': camel\n          '16': can\n          '17': castle\n          '18': caterpillar\n          '19': cattle\n          '20': chair\n          '21': chimpanzee\n          '22': clock\n          '23': cloud\n          '24': cockroach\n          '25': couch\n          '26': cra\n          '27': crocodile\n          '28': cup\n          '29': dinosaur\n          '30': dolphin\n          '31': elephant\n          '32': flatfish\n          '33': forest\n          '34': fox\n          '35': girl\n          '36': hamster\n          '37': house\n          '38': kangaroo\n          '39': keyboard\n          '40': lamp\n          '41': lawn_mower\n          '42': leopard\n          '43': lion\n          '44': lizard\n          '45': lobster\n          '46': man\n          '47': maple_tree\n          '48': motorcycle\n          '49': mountain\n          '50': mouse\n          '51': mushroom\n          '52': oak_tree\n          '53': orange\n          '54': orchid\n          '55': otter\n          '56': palm_tree\n          '57': pear\n          '58': pickup_truck\n          '59': pine_tree\n          '60': plain\n          '61': plate\n          '62': poppy\n          '63': porcupine\n          '64': possum\n          '65': rabbit\n          '66': raccoon\n          '67': ray\n          '68': road\n          '69': rocket\n          '70': rose\n          '71': sea\n          '72': seal\n          '73': shark\n          '74': shrew\n          '75': skunk\n          '76': skyscraper\n          '77': snail\n          '78': snake\n          '79': spider\n          '80': squirrel\n          '81': streetcar\n          '82': sunflower\n          '83': sweet_pepper\n          '84': table\n          '85': tank\n          '86': telephone\n          '87': television\n          '88': tiger\n          '89': tractor\n          '90': train\n          '91': trout\n          '92': tulip\n          '93': turtle\n          '94': wardrobe\n          '95': whale\n          '96': willow_tree\n          '97': wolf\n          '98': woman\n          '99': worm\n  - name: coarse_label\n    dtype:\n      class_label:\n        names:\n          '0': aquatic_mammals\n          '1': fish\n          '2': flowers\n          '3': food_containers\n          '4': fruit_and_vegetables\n          '5': household_electrical_devices\n          '6': household_furniture\n          '7': insects\n          '8': large_carnivores\n          '9': large_man-made_outdoor_things\n          '10': large_natural_outdoor_scenes\n          '11': large_omnivores_and_herbivores\n          '12': medium_mammals\n          '13': non-insect_invertebrates\n          '14': people\n          '15': reptiles\n          '16': small_mammals\n          '17': trees\n          '18': vehicles_1\n          '19': vehicles_2\n  splits:\n  - name: train\n    num_bytes: 112545106.0\n    num_examples: 50000\n  - name: test\n    num_bytes: 22564261.0\n    num_examples: 10000\n  download_size: 142291368\n  dataset_size: 135109367.0\nconfigs:\n- config_name: cifar100\n  data_files:\n  - split: train\n    path: cifar100/train-*\n  - split: test\n    path: cifar100/test-*\n  default: true\n---\n \n# Dataset Card for CIFAR-100\n\n## Table of Contents\n- [Dataset Description](#dataset-description)\n  - [Dataset Summary](#dataset-summary)\n  - [Supported Tasks and Leaderboards](#supported-tasks-and-leaderboards)\n  - [Languages](#languages)\n- [Dataset Structure](#dataset-structure)\n  - [Data Instances](#data-instances)\n  - [Data Fields](#data-fields)\n  - [Data Splits](#data-splits)\n- [Dataset Creation](#dataset-creation)\n  - [Curation Rationale](#curation-rationale)\n  - [Source Data](#source-data)\n  - [Annotations](#annotations)\n  - [Personal and Sensitive Information](#personal-and-sensitive-information)\n- [Considerations for Using the Data](#considerations-for-using-the-data)\n  - [Social Impact of Dataset](#social-impact-of-dataset)\n  - [Discussion of Biases](#discussion-of-biases)\n  - [Other Known Limitations](#other-known-limitations)\n- [Additional Information](#additional-information)\n  - [Dataset Curators](#dataset-curators)\n  - [Licensing Information](#licensing-information)\n  - [Citation Information](#citation-information)\n  - [Contributions](#contributions)\n\n## Dataset Description\n\n- **Homepage:** [CIFAR Datasets](https://www.cs.toronto.edu/~kriz/cifar.html)\n- **Repository:** \n- **Paper:** [Paper](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf)\n- **Leaderboard:**\n- **Point of Contact:**\n \n### Dataset Summary\n \nThe CIFAR-100 dataset consists of 60000 32x32 colour images in 100 classes, with 600 images\nper class. There are 500 training images and 100 testing images per class. There are 50000 training images and 10000 test images. The 100 classes are grouped into 20 superclasses. \nThere are two labels per image - fine label (actual class) and coarse label (superclass).\n\n### Supported Tasks and Leaderboards\n\n- `image-classification`: The goal of this task is to classify a given image into one of 100 classes. The leaderboard is available [here](https://paperswithcode.com/sota/image-classification-on-cifar-100).\n\n### Languages\n\nEnglish\n\n## Dataset Structure\n\n### Data Instances\n\nA sample from the training set is provided below:\n\n```\n{\n  'img': <PIL.PngImagePlugin.PngImageFile image mode=RGB size=32x32 at 0x2767F58E080>, 'fine_label': 19,\n  'coarse_label': 11\n}\n```\n\n### Data Fields\n\n- `img`: A `PIL.Image.Image` object containing the 32x32 image. Note that when accessing the image column: `dataset[0][\"image\"]` the image file is automatically decoded. Decoding of a large number of image files might take a significant amount of time. Thus it is important to first query the sample index before the `\"image\"` column, *i.e.* `dataset[0][\"image\"]` should **always** be preferred over `dataset[\"image\"][0]`\n- `fine_label`: an `int` classification label with the following mapping:\n\n  `0`: apple\n\n  `1`: aquarium_fish\n\n  `2`: baby\n\n  `3`: bear\n\n  `4`: beaver\n  \n  `5`: bed\n\n  `6`: bee\n\n  `7`: beetle\n\n  `8`: bicycle\n\n  `9`: bottle\n\n  `10`: bowl\n\n  `11`: boy\n\n  `12`: bridge\n\n  `13`: bus\n\n  `14`: butterfly\n\n  `15`: camel\n\n  `16`: can\n\n  `17`: castle\n\n  `18`: caterpillar\n\n  `19`: cattle\n\n  `20`: chair\n\n  `21`: chimpanzee\n\n  `22`: clock\n\n  `23`: cloud\n\n  `24`: cockroach\n\n  `25`: couch\n\n  `26`: cra\n\n  `27`: crocodile\n\n  `28`: cup\n\n  `29`: dinosaur\n\n  `30`: dolphin\n\n  `31`: elephant\n\n  `32`: flatfish\n\n  `33`: forest\n\n  `34`: fox\n\n  `35`: girl\n\n  `36`: hamster\n\n  `37`: house\n\n  `38`: kangaroo\n\n  `39`: keyboard\n\n  `40`: lamp\n\n  `41`: lawn_mower\n\n  `42`: leopard\n\n  `43`: lion\n\n  `44`: lizard\n\n  `45`: lobster\n\n  `46`: man\n\n  `47`: maple_tree\n\n  `48`: motorcycle\n\n  `49`: mountain\n\n  `50`: mouse\n\n  `51`: mushroom\n\n  `52`: oak_tree\n\n  `53`: orange\n\n  `54`: orchid\n\n  `55`: otter\n\n  `56`: palm_tree\n\n  `57`: pear\n\n  `58`: pickup_truck\n\n  `59`: pine_tree\n\n  `60`: plain\n\n  `61`: plate\n\n  `62`: poppy\n\n  `63`: porcupine\n\n  `64`: possum\n\n  `65`: rabbit\n\n  `66`: raccoon\n\n  `67`: ray\n\n  `68`: road\n\n  `69`: rocket\n\n  `70`: rose\n\n  `71`: sea\n\n  `72`: seal\n\n  `73`: shark\n\n  `74`: shrew\n\n  `75`: skunk\n\n  `76`: skyscraper\n\n  `77`: snail\n\n  `78`: snake\n\n  `79`: spider\n\n  `80`: squirrel\n\n  `81`: streetcar\n\n  `82`: sunflower\n\n  `83`: sweet_pepper\n\n  `84`: table\n\n  `85`: tank\n\n  `86`: telephone\n\n  `87`: television\n\n  `88`: tiger\n\n  `89`: tractor\n\n  `90`: train\n\n  `91`: trout\n\n  `92`: tulip\n\n  `93`: turtle\n\n  `94`: wardrobe\n\n  `95`: whale\n\n  `96`: willow_tree\n\n  `97`: wolf\n\n  `98`: woman\n\n  `99`: worm\n\n- `coarse_label`: an `int` coarse classification label with following mapping:\n\n  `0`: aquatic_mammals\n\n  `1`: fish\n\n  `2`: flowers\n\n  `3`: food_containers\n\n  `4`: fruit_and_vegetables\n\n  `5`: household_electrical_devices\n\n  `6`: household_furniture\n\n  `7`: insects\n\n  `8`: large_carnivores\n\n  `9`: large_man-made_outdoor_things\n\n  `10`: large_natural_outdoor_scenes\n\n  `11`: large_omnivores_and_herbivores\n\n  `12`: medium_mammals\n\n  `13`: non-insect_invertebrates\n\n  `14`: people\n\n  `15`: reptiles\n\n  `16`: small_mammals\n\n  `17`: trees\n\n  `18`: vehicles_1\n\n  `19`: vehicles_2\n\n\n \n### Data Splits\n \n|   name   |train|test|\n|----------|----:|---------:|\n|cifar100|50000|     10000|\n \n## Dataset Creation\n \n### Curation Rationale\n \n[More Information Needed]\n \n### Source Data\n \n#### Initial Data Collection and Normalization\n \n[More Information Needed]\n \n#### Who are the source language producers?\n \n[More Information Needed]\n \n### Annotations\n \n#### Annotation process\n \n[More Information Needed]\n \n#### Who are the annotators?\n \n[More Information Needed]\n \n### Personal and Sensitive Information\n \n[More Information Needed]\n \n## Considerations for Using the Data\n \n### Social Impact of Dataset\n \n[More Information Needed]\n \n### Discussion of Biases\n \n[More Information Needed]\n \n### Other Known Limitations\n \n[More Information Needed]\n \n## Additional Information\n \n### Dataset Curators\n \n[More Information Needed]\n \n### Licensing Information\n \n[More Information Needed]\n \n### Citation Information\n \n```\n@TECHREPORT{Krizhevsky09learningmultiple,\n    author = {Alex Krizhevsky},\n    title = {Learning multiple layers of features from tiny images},\n    institution = {},\n    year = {2009}\n}\n```\n\n### Contributions\n\nThanks to [@gchhablani](https://github.com/gchablani) for adding this dataset.",
+              "extracted_code": ""
+            },
+            {
+              "id": "tanganke/cifar100",
+              "author": "tanganke",
+              "sha": "7de7416777eb0bca0194ab35ac1c1b297f1d6b26",
+              "created_at": "2024-09-23T13:10:03+00:00",
+              "last_modified": "2024-09-23T13:10:15+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 1996,
+              "likes": 0,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "data/test-00000-of-00001.parquet"
+                },
+                {
+                  "rfilename": "data/train-00000-of-00001.parquet"
+                }
+              ],
+              "card_data": {
+                "language": [],
+                "tags": [],
+                "datasets": [],
+                "task_categories": [],
+                "size_categories": [],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "size_categories:10K<n<100K",
+                "format:parquet",
+                "modality:image",
+                "library:datasets",
+                "library:pandas",
+                "library:mlcroissant",
+                "library:polars",
+                "region:us"
+              ],
+              "readme": "---\ndataset_info:\n  features:\n  - name: image\n    dtype: image\n  - name: label\n    dtype:\n      class_label:\n        names:\n          '0': apple\n          '1': aquarium_fish\n          '2': baby\n          '3': bear\n          '4': beaver\n          '5': bed\n          '6': bee\n          '7': beetle\n          '8': bicycle\n          '9': bottle\n          '10': bowl\n          '11': boy\n          '12': bridge\n          '13': bus\n          '14': butterfly\n          '15': camel\n          '16': can\n          '17': castle\n          '18': caterpillar\n          '19': cattle\n          '20': chair\n          '21': chimpanzee\n          '22': clock\n          '23': cloud\n          '24': cockroach\n          '25': couch\n          '26': cra\n          '27': crocodile\n          '28': cup\n          '29': dinosaur\n          '30': dolphin\n          '31': elephant\n          '32': flatfish\n          '33': forest\n          '34': fox\n          '35': girl\n          '36': hamster\n          '37': house\n          '38': kangaroo\n          '39': keyboard\n          '40': lamp\n          '41': lawn_mower\n          '42': leopard\n          '43': lion\n          '44': lizard\n          '45': lobster\n          '46': man\n          '47': maple_tree\n          '48': motorcycle\n          '49': mountain\n          '50': mouse\n          '51': mushroom\n          '52': oak_tree\n          '53': orange\n          '54': orchid\n          '55': otter\n          '56': palm_tree\n          '57': pear\n          '58': pickup_truck\n          '59': pine_tree\n          '60': plain\n          '61': plate\n          '62': poppy\n          '63': porcupine\n          '64': possum\n          '65': rabbit\n          '66': raccoon\n          '67': ray\n          '68': road\n          '69': rocket\n          '70': rose\n          '71': sea\n          '72': seal\n          '73': shark\n          '74': shrew\n          '75': skunk\n          '76': skyscraper\n          '77': snail\n          '78': snake\n          '79': spider\n          '80': squirrel\n          '81': streetcar\n          '82': sunflower\n          '83': sweet_pepper\n          '84': table\n          '85': tank\n          '86': telephone\n          '87': television\n          '88': tiger\n          '89': tractor\n          '90': train\n          '91': trout\n          '92': tulip\n          '93': turtle\n          '94': wardrobe\n          '95': whale\n          '96': willow_tree\n          '97': wolf\n          '98': woman\n          '99': worm\n  splits:\n  - name: train\n    num_bytes: 112145106.0\n    num_examples: 50000\n  - name: test\n    num_bytes: 22484261.0\n    num_examples: 10000\n  download_size: 142006370\n  dataset_size: 134629367.0\nconfigs:\n- config_name: default\n  data_files:\n  - split: train\n    path: data/train-*\n  - split: test\n    path: data/test-*\n---\n",
+              "extracted_code": ""
+            },
+            {
+              "id": "noahshinn/cifar100_2_to_100",
+              "author": "noahshinn",
+              "sha": "59290dd1e06a6a7bc7076e7d40cfde2071fdf8e9",
+              "created_at": "2023-12-27T07:14:29+00:00",
+              "last_modified": "2023-12-27T08:05:03+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 353,
+              "likes": 0,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "data/cifar100_10-00000-of-00001-9246a59c2f5d649f.parquet"
+                },
+                {
+                  "rfilename": "data/cifar100_100-00000-of-00001-bf4c65eeee8b47b4.parquet"
+                },
+                {
+                  "rfilename": "data/cifar100_11-00000-of-00001-cec525e4a00b1176.parquet"
+                },
+                {
+                  "rfilename": "data/cifar100_12-00000-of-00001-8e5a3920a72c06d5.parquet"
+                },
+                {
+                  "rfilename": "data/cifar100_13-00000-of-00001-da00a09bdce6b761.parquet"
+                },
+                {
+                  "rfilename": "data/cifar100_14-00000-of-00001-ccf0583d7dae1782.parquet"
+                },
+                {
+                  "rfilename": "data/cifar100_15-00000-of-00001-ea1d72400aecb8b5.parquet"
+                },
+                {
+                  "rfilename": "data/cifar100_16-00000-of-00001-2ce2a7d3a8943e3f.parquet"
+                }
+              ],
+              "card_data": {
+                "language": [],
+                "tags": [],
+                "datasets": [],
+                "task_categories": [],
+                "size_categories": [],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "size_categories:1M<n<10M",
+                "format:parquet",
+                "modality:image",
+                "library:datasets",
+                "library:pandas",
+                "library:mlcroissant",
+                "library:polars",
+                "region:us"
+              ],
+              "readme": "---\nconfigs:\n- config_name: default\n  data_files:\n  - split: cifar100_2\n    path: data/cifar100_2-*\n  - split: cifar100_3\n    path: data/cifar100_3-*\n  - split: cifar100_4\n    path: data/cifar100_4-*\n  - split: cifar100_5\n    path: data/cifar100_5-*\n  - split: cifar100_6\n    path: data/cifar100_6-*\n  - split: cifar100_7\n    path: data/cifar100_7-*\n  - split: cifar100_8\n    path: data/cifar100_8-*\n  - split: cifar100_9\n    path: data/cifar100_9-*\n  - split: cifar100_10\n    path: data/cifar100_10-*\n  - split: cifar100_11\n    path: data/cifar100_11-*\n  - split: cifar100_12\n    path: data/cifar100_12-*\n  - split: cifar100_13\n    path: data/cifar100_13-*\n  - split: cifar100_14\n    path: data/cifar100_14-*\n  - split: cifar100_15\n    path: data/cifar100_15-*\n  - split: cifar100_16\n    path: data/cifar100_16-*\n  - split: cifar100_17\n    path: data/cifar100_17-*\n  - split: cifar100_18\n    path: data/cifar100_18-*\n  - split: cifar100_19\n    path: data/cifar100_19-*\n  - split: cifar100_20\n    path: data/cifar100_20-*\n  - split: cifar100_21\n    path: data/cifar100_21-*\n  - split: cifar100_22\n    path: data/cifar100_22-*\n  - split: cifar100_23\n    path: data/cifar100_23-*\n  - split: cifar100_24\n    path: data/cifar100_24-*\n  - split: cifar100_25\n    path: data/cifar100_25-*\n  - split: cifar100_26\n    path: data/cifar100_26-*\n  - split: cifar100_27\n    path: data/cifar100_27-*\n  - split: cifar100_28\n    path: data/cifar100_28-*\n  - split: cifar100_29\n    path: data/cifar100_29-*\n  - split: cifar100_30\n    path: data/cifar100_30-*\n  - split: cifar100_31\n    path: data/cifar100_31-*\n  - split: cifar100_32\n    path: data/cifar100_32-*\n  - split: cifar100_33\n    path: data/cifar100_33-*\n  - split: cifar100_34\n    path: data/cifar100_34-*\n  - split: cifar100_35\n    path: data/cifar100_35-*\n  - split: cifar100_36\n    path: data/cifar100_36-*\n  - split: cifar100_37\n    path: data/cifar100_37-*\n  - split: cifar100_38\n    path: data/cifar100_38-*\n  - split: cifar100_39\n    path: data/cifar100_39-*\n  - split: cifar100_40\n    path: data/cifar100_40-*\n  - split: cifar100_41\n    path: data/cifar100_41-*\n  - split: cifar100_42\n    path: data/cifar100_42-*\n  - split: cifar100_43\n    path: data/cifar100_43-*\n  - split: cifar100_44\n    path: data/cifar100_44-*\n  - split: cifar100_45\n    path: data/cifar100_45-*\n  - split: cifar100_46\n    path: data/cifar100_46-*\n  - split: cifar100_47\n    path: data/cifar100_47-*\n  - split: cifar100_48\n    path: data/cifar100_48-*\n  - split: cifar100_49\n    path: data/cifar100_49-*\n  - split: cifar100_50\n    path: data/cifar100_50-*\n  - split: cifar100_51\n    path: data/cifar100_51-*\n  - split: cifar100_52\n    path: data/cifar100_52-*\n  - split: cifar100_53\n    path: data/cifar100_53-*\n  - split: cifar100_54\n    path: data/cifar100_54-*\n  - split: cifar100_55\n    path: data/cifar100_55-*\n  - split: cifar100_56\n    path: data/cifar100_56-*\n  - split: cifar100_57\n    path: data/cifar100_57-*\n  - split: cifar100_58\n    path: data/cifar100_58-*\n  - split: cifar100_59\n    path: data/cifar100_59-*\n  - split: cifar100_60\n    path: data/cifar100_60-*\n  - split: cifar100_61\n    path: data/cifar100_61-*\n  - split: cifar100_62\n    path: data/cifar100_62-*\n  - split: cifar100_63\n    path: data/cifar100_63-*\n  - split: cifar100_64\n    path: data/cifar100_64-*\n  - split: cifar100_65\n    path: data/cifar100_65-*\n  - split: cifar100_66\n    path: data/cifar100_66-*\n  - split: cifar100_67\n    path: data/cifar100_67-*\n  - split: cifar100_68\n    path: data/cifar100_68-*\n  - split: cifar100_69\n    path: data/cifar100_69-*\n  - split: cifar100_70\n    path: data/cifar100_70-*\n  - split: cifar100_71\n    path: data/cifar100_71-*\n  - split: cifar100_72\n    path: data/cifar100_72-*\n  - split: cifar100_73\n    path: data/cifar100_73-*\n  - split: cifar100_74\n    path: data/cifar100_74-*\n  - split: cifar100_75\n    path: data/cifar100_75-*\n  - split: cifar100_76\n    path: data/cifar100_76-*\n  - split: cifar100_77\n    path: data/cifar100_77-*\n  - split: cifar100_78\n    path: data/cifar100_78-*\n  - split: cifar100_79\n    path: data/cifar100_79-*\n  - split: cifar100_80\n    path: data/cifar100_80-*\n  - split: cifar100_81\n    path: data/cifar100_81-*\n  - split: cifar100_82\n    path: data/cifar100_82-*\n  - split: cifar100_83\n    path: data/cifar100_83-*\n  - split: cifar100_84\n    path: data/cifar100_84-*\n  - split: cifar100_85\n    path: data/cifar100_85-*\n  - split: cifar100_86\n    path: data/cifar100_86-*\n  - split: cifar100_87\n    path: data/cifar100_87-*\n  - split: cifar100_88\n    path: data/cifar100_88-*\n  - split: cifar100_89\n    path: data/cifar100_89-*\n  - split: cifar100_90\n    path: data/cifar100_90-*\n  - split: cifar100_91\n    path: data/cifar100_91-*\n  - split: cifar100_92\n    path: data/cifar100_92-*\n  - split: cifar100_93\n    path: data/cifar100_93-*\n  - split: cifar100_94\n    path: data/cifar100_94-*\n  - split: cifar100_95\n    path: data/cifar100_95-*\n  - split: cifar100_96\n    path: data/cifar100_96-*\n  - split: cifar100_97\n    path: data/cifar100_97-*\n  - split: cifar100_98\n    path: data/cifar100_98-*\n  - split: cifar100_99\n    path: data/cifar100_99-*\n  - split: cifar100_100\n    path: data/cifar100_100-*\ndataset_info:\n  features:\n  - name: img\n    dtype: image\n  - name: fine_label\n    dtype:\n      class_label:\n        names:\n          '0': apple\n          '1': aquarium_fish\n          '2': baby\n          '3': bear\n          '4': beaver\n          '5': bed\n          '6': bee\n          '7': beetle\n          '8': bicycle\n          '9': bottle\n          '10': bowl\n          '11': boy\n          '12': bridge\n          '13': bus\n          '14': butterfly\n          '15': camel\n          '16': can\n          '17': castle\n          '18': caterpillar\n          '19': cattle\n          '20': chair\n          '21': chimpanzee\n          '22': clock\n          '23': cloud\n          '24': cockroach\n          '25': couch\n          '26': cra\n          '27': crocodile\n          '28': cup\n          '29': dinosaur\n          '30': dolphin\n          '31': elephant\n          '32': flatfish\n          '33': forest\n          '34': fox\n          '35': girl\n          '36': hamster\n          '37': house\n          '38': kangaroo\n          '39': keyboard\n          '40': lamp\n          '41': lawn_mower\n          '42': leopard\n          '43': lion\n          '44': lizard\n          '45': lobster\n          '46': man\n          '47': maple_tree\n          '48': motorcycle\n          '49': mountain\n          '50': mouse\n          '51': mushroom\n          '52': oak_tree\n          '53': orange\n          '54': orchid\n          '55': otter\n          '56': palm_tree\n          '57': pear\n          '58': pickup_truck\n          '59': pine_tree\n          '60': plain\n          '61': plate\n          '62': poppy\n          '63': porcupine\n          '64': possum\n          '65': rabbit\n          '66': raccoon\n          '67': ray\n          '68': road\n          '69': rocket\n          '70': rose\n          '71': sea\n          '72': seal\n          '73': shark\n          '74': shrew\n          '75': skunk\n          '76': skyscraper\n          '77': snail\n          '78': snake\n          '79': spider\n          '80': squirrel\n          '81': streetcar\n          '82': sunflower\n          '83': sweet_pepper\n          '84': table\n          '85': tank\n          '86': telephone\n          '87': television\n          '88': tiger\n          '89': tractor\n          '90': train\n          '91': trout\n          '92': tulip\n          '93': turtle\n          '94': wardrobe\n          '95': whale\n          '96': willow_tree\n          '97': wolf\n          '98': woman\n          '99': worm\n  - name: coarse_label\n    dtype:\n      class_label:\n        names:\n          '0': aquatic_mammals\n          '1': fish\n          '2': flowers\n          '3': food_containers\n          '4': fruit_and_vegetables\n          '5': household_electrical_devices\n          '6': household_furniture\n          '7': insects\n          '8': large_carnivores\n          '9': large_man-made_outdoor_things\n          '10': large_natural_outdoor_scenes\n          '11': large_omnivores_and_herbivores\n          '12': medium_mammals\n          '13': non-insect_invertebrates\n          '14': people\n          '15': reptiles\n          '16': small_mammals\n          '17': trees\n          '18': vehicles_1\n          '19': vehicles_2\n  splits:\n  - name: cifar100_2\n    num_bytes: 2250027.12\n    num_examples: 1000\n  - name: cifar100_3\n    num_bytes: 3375040.68\n    num_examples: 1500\n  - name: cifar100_4\n    num_bytes: 4500054.24\n    num_examples: 2000\n  - name: cifar100_5\n    num_bytes: 5625067.8\n    num_examples: 2500\n  - name: cifar100_6\n    num_bytes: 6750081.36\n    num_examples: 3000\n  - name: cifar100_7\n    num_bytes: 7875094.92\n    num_examples: 3500\n  - name: cifar100_8\n    num_bytes: 9000108.48\n    num_examples: 4000\n  - name: cifar100_9\n    num_bytes: 10125122.04\n    num_examples: 4500\n  - name: cifar100_10\n    num_bytes: 11250135.6\n    num_examples: 5000\n  - name: cifar100_11\n    num_bytes: 12375149.16\n    num_examples: 5500\n  - name: cifar100_12\n    num_bytes: 13500162.72\n    num_examples: 6000\n  - name: cifar100_13\n    num_bytes: 14625176.28\n    num_examples: 6500\n  - name: cifar100_14\n    num_bytes: 15750189.84\n    num_examples: 7000\n  - name: cifar100_15\n    num_bytes: 16875203.4\n    num_examples: 7500\n  - name: cifar100_16\n    num_bytes: 18000216.96\n    num_examples: 8000\n  - name: cifar100_17\n    num_bytes: 19125230.52\n    num_examples: 8500\n  - name: cifar100_18\n    num_bytes: 20250244.08\n    num_examples: 9000\n  - name: cifar100_19\n    num_bytes: 21375257.64\n    num_examples: 9500\n  - name: cifar100_20\n    num_bytes: 22500271.2\n    num_examples: 10000\n  - name: cifar100_21\n    num_bytes: 23625284.76\n    num_examples: 10500\n  - name: cifar100_22\n    num_bytes: 24750298.32\n    num_examples: 11000\n  - name: cifar100_23\n    num_bytes: 25875311.88\n    num_examples: 11500\n  - name: cifar100_24\n    num_bytes: 27000325.44\n    num_examples: 12000\n  - name: cifar100_25\n    num_bytes: 28125339.0\n    num_examples: 12500\n  - name: cifar100_26\n    num_bytes: 29250352.56\n    num_examples: 13000\n  - name: cifar100_27\n    num_bytes: 30375366.12\n    num_examples: 13500\n  - name: cifar100_28\n    num_bytes: 31500379.68\n    num_examples: 14000\n  - name: cifar100_29\n    num_bytes: 32625393.24\n    num_examples: 14500\n  - name: cifar100_30\n    num_bytes: 33750406.8\n    num_examples: 15000\n  - name: cifar100_31\n    num_bytes: 34875420.36\n    num_examples: 15500\n  - name: cifar100_32\n    num_bytes: 36000433.92\n    num_examples: 16000\n  - name: cifar100_33\n    num_bytes: 37125447.48\n    num_examples: 16500\n  - name: cifar100_34\n    num_bytes: 38250461.04\n    num_examples: 17000\n  - name: cifar100_35\n    num_bytes: 39375474.6\n    num_examples: 17500\n  - name: cifar100_36\n    num_bytes: 40500488.16\n    num_examples: 18000\n  - name: cifar100_37\n    num_bytes: 41625501.72\n    num_examples: 18500\n  - name: cifar100_38\n    num_bytes: 42750515.28\n    num_examples: 19000\n  - name: cifar100_39\n    num_bytes: 43875528.84\n    num_examples: 19500\n  - name: cifar100_40\n    num_bytes: 45000542.4\n    num_examples: 20000\n  - name: cifar100_41\n    num_bytes: 46125555.96\n    num_examples: 20500\n  - name: cifar100_42\n    num_bytes: 47250569.52\n    num_examples: 21000\n  - name: cifar100_43\n    num_bytes: 48375583.08\n    num_examples: 21500\n  - name: cifar100_44\n    num_bytes: 49500596.64\n    num_examples: 22000\n  - name: cifar100_45\n    num_bytes: 50625610.2\n    num_examples: 22500\n  - name: cifar100_46\n    num_bytes: 51750623.76\n    num_examples: 23000\n  - name: cifar100_47\n    num_bytes: 52875637.32\n    num_examples: 23500\n  - name: cifar100_48\n    num_bytes: 54000650.88\n    num_examples: 24000\n  - name: cifar100_49\n    num_bytes: 55125664.44\n    num_examples: 24500\n  - name: cifar100_50\n    num_bytes: 56250678.0\n    num_examples: 25000\n  - name: cifar100_51\n    num_bytes: 57375691.56\n    num_examples: 25500\n  - name: cifar100_52\n    num_bytes: 58500705.12\n    num_examples: 26000\n  - name: cifar100_53\n    num_bytes: 59625718.68\n    num_examples: 26500\n  - name: cifar100_54\n    num_bytes: 60750732.24\n    num_examples: 27000\n  - name: cifar100_55\n    num_bytes: 61875745.8\n    num_examples: 27500\n  - name: cifar100_56\n    num_bytes: 63000759.36\n    num_examples: 28000\n  - name: cifar100_57\n    num_bytes: 64125772.92\n    num_examples: 28500\n  - name: cifar100_58\n    num_bytes: 65250786.48\n    num_examples: 29000\n  - name: cifar100_59\n    num_bytes: 66375800.04\n    num_examples: 29500\n  - name: cifar100_60\n    num_bytes: 67500813.6\n    num_examples: 30000\n  - name: cifar100_61\n    num_bytes: 68625827.16\n    num_examples: 30500\n  - name: cifar100_62\n    num_bytes: 69750840.72\n    num_examples: 31000\n  - name: cifar100_63\n    num_bytes: 70875854.28\n    num_examples: 31500\n  - name: cifar100_64\n    num_bytes: 72000867.84\n    num_examples: 32000\n  - name: cifar100_65\n    num_bytes: 73125881.4\n    num_examples: 32500\n  - name: cifar100_66\n    num_bytes: 74250894.96\n    num_examples: 33000\n  - name: cifar100_67\n    num_bytes: 75375908.52\n    num_examples: 33500\n  - name: cifar100_68\n    num_bytes: 76500922.08\n    num_examples: 34000\n  - name: cifar100_69\n    num_bytes: 77625935.64\n    num_examples: 34500\n  - name: cifar100_70\n    num_bytes: 78750949.2\n    num_examples: 35000\n  - name: cifar100_71\n    num_bytes: 79875962.76\n    num_examples: 35500\n  - name: cifar100_72\n    num_bytes: 81000976.32\n    num_examples: 36000\n  - name: cifar100_73\n    num_bytes: 82125989.88\n    num_examples: 36500\n  - name: cifar100_74\n    num_bytes: 83251003.44\n    num_examples: 37000\n  - name: cifar100_75\n    num_bytes: 84376017.0\n    num_examples: 37500\n  - name: cifar100_76\n    num_bytes: 85501030.56\n    num_examples: 38000\n  - name: cifar100_77\n    num_bytes: 86626044.12\n    num_examples: 38500\n  - name: cifar100_78\n    num_bytes: 87751057.68\n    num_examples: 39000\n  - name: cifar100_79\n    num_bytes: 88876071.24\n    num_examples: 39500\n  - name: cifar100_80\n    num_bytes: 90001084.8\n    num_examples: 40000\n  - name: cifar100_81\n    num_bytes: 91126098.36\n    num_examples: 40500\n  - name: cifar100_82\n    num_bytes: 92251111.92\n    num_examples: 41000\n  - name: cifar100_83\n    num_bytes: 93376125.48\n    num_examples: 41500\n  - name: cifar100_84\n    num_bytes: 94501139.04\n    num_examples: 42000\n  - name: cifar100_85\n    num_bytes: 95626152.6\n    num_examples: 42500\n  - name: cifar100_86\n    num_bytes: 96751166.16\n    num_examples: 43000\n  - name: cifar100_87\n    num_bytes: 97876179.72\n    num_examples: 43500\n  - name: cifar100_88\n    num_bytes: 99001193.28\n    num_examples: 44000\n  - name: cifar100_89\n    num_bytes: 100126206.84\n    num_examples: 44500\n  - name: cifar100_90\n    num_bytes: 101251220.4\n    num_examples: 45000\n  - name: cifar100_91\n    num_bytes: 102376233.96\n    num_examples: 45500\n  - name: cifar100_92\n    num_bytes: 103501247.52\n    num_examples: 46000\n  - name: cifar100_93\n    num_bytes: 104626261.08\n    num_examples: 46500\n  - name: cifar100_94\n    num_bytes: 105751274.64\n    num_examples: 47000\n  - name: cifar100_95\n    num_bytes: 106876288.2\n    num_examples: 47500\n  - name: cifar100_96\n    num_bytes: 108001301.76\n    num_examples: 48000\n  - name: cifar100_97\n    num_bytes: 109126315.32\n    num_examples: 48500\n  - name: cifar100_98\n    num_bytes: 110251328.88\n    num_examples: 49000\n  - name: cifar100_99\n    num_bytes: 111376342.44\n    num_examples: 49500\n  - name: cifar100_100\n    num_bytes: 112501356.0\n    num_examples: 50000\n  download_size: 5989828624\n  dataset_size: 5680193464.44\n---\n# Dataset Card for \"cifar100_2_to_100\"\n\n[More Information needed](https://github.com/huggingface/datasets/blob/main/CONTRIBUTING.md#how-to-contribute-to-the-dataset-cards)",
+              "extracted_code": ""
+            },
+            {
+              "id": "tomas-gajarsky/cifar100-lt",
+              "author": "tomas-gajarsky",
+              "sha": "ecef156df0274a00b3f25cf8f8061535169a32d3",
+              "created_at": "2023-05-05T15:43:58+00:00",
+              "last_modified": "2023-12-10T21:57:46+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 111,
+              "likes": 0,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "cifar100-lt.py"
+                }
+              ],
+              "card_data": {
+                "license": "apache-2.0",
+                "language": [
+                  "en"
+                ],
+                "tags": [],
+                "datasets": [],
+                "task_categories": [
+                  "image-classification"
+                ],
+                "size_categories": [
+                  "10K<n<100K"
+                ],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "task_categories:image-classification",
+                "annotations_creators:crowdsourced",
+                "language_creators:found",
+                "multilinguality:monolingual",
+                "source_datasets:cifar100",
+                "language:en",
+                "license:apache-2.0",
+                "size_categories:10K<n<100K",
+                "region:us"
+              ],
+              "readme": "---\nannotations_creators:\n- crowdsourced\nlanguage_creators:\n- found\nlanguage:\n- en\nlicense: apache-2.0\nmultilinguality:\n- monolingual\nsize_categories:\n- 10K<n<100K\nsource_datasets:\n- cifar100\ntask_categories:\n- image-classification\ntask_ids: []\npaperswithcode_id: cifar-100\npretty_name: Cifar100-LT\ndataset_info:\n  features:\n  - name: img\n    dtype: image\n  - name: fine_label\n    dtype:\n      class_label:\n        names:\n          '0': apple\n          '1': aquarium_fish\n          '2': baby\n          '3': bear\n          '4': beaver\n          '5': bed\n          '6': bee\n          '7': beetle\n          '8': bicycle\n          '9': bottle\n          '10': bowl\n          '11': boy\n          '12': bridge\n          '13': bus\n          '14': butterfly\n          '15': camel\n          '16': can\n          '17': castle\n          '18': caterpillar\n          '19': cattle\n          '20': chair\n          '21': chimpanzee\n          '22': clock\n          '23': cloud\n          '24': cockroach\n          '25': couch\n          '26': cra\n          '27': crocodile\n          '28': cup\n          '29': dinosaur\n          '30': dolphin\n          '31': elephant\n          '32': flatfish\n          '33': forest\n          '34': fox\n          '35': girl\n          '36': hamster\n          '37': house\n          '38': kangaroo\n          '39': keyboard\n          '40': lamp\n          '41': lawn_mower\n          '42': leopard\n          '43': lion\n          '44': lizard\n          '45': lobster\n          '46': man\n          '47': maple_tree\n          '48': motorcycle\n          '49': mountain\n          '50': mouse\n          '51': mushroom\n          '52': oak_tree\n          '53': orange\n          '54': orchid\n          '55': otter\n          '56': palm_tree\n          '57': pear\n          '58': pickup_truck\n          '59': pine_tree\n          '60': plain\n          '61': plate\n          '62': poppy\n          '63': porcupine\n          '64': possum\n          '65': rabbit\n          '66': raccoon\n          '67': ray\n          '68': road\n          '69': rocket\n          '70': rose\n          '71': sea\n          '72': seal\n          '73': shark\n          '74': shrew\n          '75': skunk\n          '76': skyscraper\n          '77': snail\n          '78': snake\n          '79': spider\n          '80': squirrel\n          '81': streetcar\n          '82': sunflower\n          '83': sweet_pepper\n          '84': table\n          '85': tank\n          '86': telephone\n          '87': television\n          '88': tiger\n          '89': tractor\n          '90': train\n          '91': trout\n          '92': tulip\n          '93': turtle\n          '94': wardrobe\n          '95': whale\n          '96': willow_tree\n          '97': wolf\n          '98': woman\n          '99': worm\n  - name: coarse_label\n    dtype:\n      class_label:\n        names:\n          '0': aquatic_mammals\n          '1': fish\n          '2': flowers\n          '3': food_containers\n          '4': fruit_and_vegetables\n          '5': household_electrical_devices\n          '6': household_furniture\n          '7': insects\n          '8': large_carnivores\n          '9': large_man-made_outdoor_things\n          '10': large_natural_outdoor_scenes\n          '11': large_omnivores_and_herbivores\n          '12': medium_mammals\n          '13': non-insect_invertebrates\n          '14': people\n          '15': reptiles\n          '16': small_mammals\n          '17': trees\n          '18': vehicles_1\n          '19': vehicles_2\n  config_name: cifar100\n  splits:\n  - name: train\n  - name: test\n    num_bytes: 22605519\n    num_examples: 10000\n  download_size: 169001437\n---\n \n# Dataset Card for CIFAR-100-LT (Long Tail)\n\n## Table of Contents\n- [Dataset Description](#dataset-description)\n  - [Dataset Summary](#dataset-summary)\n  - [Supported Tasks and Leaderboards](#supported-tasks-and-leaderboards)\n  - [Languages](#languages)\n- [Dataset Structure](#dataset-structure)\n  - [Data Instances](#data-instances)\n  - [Data Fields](#data-fields)\n  - [Data Splits](#data-splits)\n- [Additional Information](#additional-information)\n  - [Licensing Information](#licensing-information)\n  - [Citation Information](#citation-information)\n  - [Contributions](#contributions)\n\n## Dataset Description\n\n- **Homepage:** [CIFAR Datasets](https://www.cs.toronto.edu/~kriz/cifar.html)\n- **Paper:** [Paper imbalanced example](https://openaccess.thecvf.com/content_CVPR_2019/papers/Cui_Class-Balanced_Loss_Based_on_Effective_Number_of_Samples_CVPR_2019_paper.pdf)\n- **Leaderboard:** [r-10](https://paperswithcode.com/sota/long-tail-learning-on-cifar-100-lt-r-10) [r-100](https://paperswithcode.com/sota/long-tail-learning-on-cifar-100-lt-r-100)\n \n### Dataset Summary\n \nThe CIFAR-100-LT imbalanced dataset is comprised of under 60,000 color images, each measuring 32x32 pixels, \ndistributed across 100 distinct classes. \nThe number of samples within each class decreases exponentially with factors of 10 and 100. \nThe dataset includes 10,000 test images, with 100 images per class, \nand fewer than 50,000 training images. \nThese 100 classes are further organized into 20 overarching superclasses. \nEach image is assigned two labels: a fine label denoting the specific class, \nand a coarse label representing the associated superclass.\n\n### Supported Tasks and Leaderboards\n\n- `image-classification`: The goal of this task is to classify a given image into one of 100 classes. The leaderboard is available [here](https://paperswithcode.com/sota/long-tail-learning-on-cifar-100-lt-r-100).\n\n### Languages\n\nEnglish\n\n## Dataset Structure\n\n### Data Instances\n\nA sample from the training set is provided below:\n\n```\n{\n  'img': <PIL.PngImagePlugin.PngImageFile image mode=RGB size=32x32 at 0x2767F58E080>, 'fine_label': 19,\n  'coarse_label': 11\n}\n```\n\n### Data Fields\n\n- `img`: A `PIL.Image.Image` object containing the 32x32 image. Note that when accessing the image column: `dataset[0][\"image\"]` the image file is automatically decoded. Decoding of a large number of image files might take a significant amount of time. Thus it is important to first query the sample index before the `\"image\"` column, *i.e.* `dataset[0][\"image\"]` should **always** be preferred over `dataset[\"image\"][0]`\n- `fine_label`: an `int` classification label with the following mapping:\n\n  `0`: apple\n\n  `1`: aquarium_fish\n\n  `2`: baby\n\n  `3`: bear\n\n  `4`: beaver\n  \n  `5`: bed\n\n  `6`: bee\n\n  `7`: beetle\n\n  `8`: bicycle\n\n  `9`: bottle\n\n  `10`: bowl\n\n  `11`: boy\n\n  `12`: bridge\n\n  `13`: bus\n\n  `14`: butterfly\n\n  `15`: camel\n\n  `16`: can\n\n  `17`: castle\n\n  `18`: caterpillar\n\n  `19`: cattle\n\n  `20`: chair\n\n  `21`: chimpanzee\n\n  `22`: clock\n\n  `23`: cloud\n\n  `24`: cockroach\n\n  `25`: couch\n\n  `26`: cra\n\n  `27`: crocodile\n\n  `28`: cup\n\n  `29`: dinosaur\n\n  `30`: dolphin\n\n  `31`: elephant\n\n  `32`: flatfish\n\n  `33`: forest\n\n  `34`: fox\n\n  `35`: girl\n\n  `36`: hamster\n\n  `37`: house\n\n  `38`: kangaroo\n\n  `39`: keyboard\n\n  `40`: lamp\n\n  `41`: lawn_mower\n\n  `42`: leopard\n\n  `43`: lion\n\n  `44`: lizard\n\n  `45`: lobster\n\n  `46`: man\n\n  `47`: maple_tree\n\n  `48`: motorcycle\n\n  `49`: mountain\n\n  `50`: mouse\n\n  `51`: mushroom\n\n  `52`: oak_tree\n\n  `53`: orange\n\n  `54`: orchid\n\n  `55`: otter\n\n  `56`: palm_tree\n\n  `57`: pear\n\n  `58`: pickup_truck\n\n  `59`: pine_tree\n\n  `60`: plain\n\n  `61`: plate\n\n  `62`: poppy\n\n  `63`: porcupine\n\n  `64`: possum\n\n  `65`: rabbit\n\n  `66`: raccoon\n\n  `67`: ray\n\n  `68`: road\n\n  `69`: rocket\n\n  `70`: rose\n\n  `71`: sea\n\n  `72`: seal\n\n  `73`: shark\n\n  `74`: shrew\n\n  `75`: skunk\n\n  `76`: skyscraper\n\n  `77`: snail\n\n  `78`: snake\n\n  `79`: spider\n\n  `80`: squirrel\n\n  `81`: streetcar\n\n  `82`: sunflower\n\n  `83`: sweet_pepper\n\n  `84`: table\n\n  `85`: tank\n\n  `86`: telephone\n\n  `87`: television\n\n  `88`: tiger\n\n  `89`: tractor\n\n  `90`: train\n\n  `91`: trout\n\n  `92`: tulip\n\n  `93`: turtle\n\n  `94`: wardrobe\n\n  `95`: whale\n\n  `96`: willow_tree\n\n  `97`: wolf\n\n  `98`: woman\n\n  `99`: worm\n\n- `coarse_label`: an `int` coarse classification label with following mapping:\n\n  `0`: aquatic_mammals\n\n  `1`: fish\n\n  `2`: flowers\n\n  `3`: food_containers\n\n  `4`: fruit_and_vegetables\n\n  `5`: household_electrical_devices\n\n  `6`: household_furniture\n\n  `7`: insects\n\n  `8`: large_carnivores\n\n  `9`: large_man-made_outdoor_things\n\n  `10`: large_natural_outdoor_scenes\n\n  `11`: large_omnivores_and_herbivores\n\n  `12`: medium_mammals\n\n  `13`: non-insect_invertebrates\n\n  `14`: people\n\n  `15`: reptiles\n\n  `16`: small_mammals\n\n  `17`: trees\n\n  `18`: vehicles_1\n\n  `19`: vehicles_2\n\n\n \n### Data Splits\n \n|   name   |train|test|\n|----------|----:|---------:|\n|cifar100|<50000|     10000|\n \n### Licensing Information\nApache License 2.0\n \n### Citation Information\n \n```\n@TECHREPORT{Krizhevsky09learningmultiple,\n    author = {Alex Krizhevsky},\n    title = {Learning multiple layers of features from tiny images},\n    institution = {},\n    year = {2009}\n}\n```\n\n### Contributions\n\nThanks to [@gchhablani](https://github.com/gchablani) and all contributors for adding the original balanced cifar100 dataset.",
+              "extracted_code": ""
+            },
+            {
+              "id": "ufldl-stanford/svhn",
+              "author": "ufldl-stanford",
+              "sha": "f9e1717d73324ebbc1ece84267ccd80d0aca0690",
+              "created_at": "2022-03-02T23:29:22+00:00",
+              "last_modified": "2024-08-08T05:58:52+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 5152,
+              "likes": 14,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "cropped_digits/extra-00000-of-00002.parquet"
+                },
+                {
+                  "rfilename": "cropped_digits/extra-00001-of-00002.parquet"
+                },
+                {
+                  "rfilename": "cropped_digits/test-00000-of-00001.parquet"
+                },
+                {
+                  "rfilename": "cropped_digits/train-00000-of-00001.parquet"
+                },
+                {
+                  "rfilename": "full_numbers/extra-00000-of-00004.parquet"
+                },
+                {
+                  "rfilename": "full_numbers/extra-00001-of-00004.parquet"
+                },
+                {
+                  "rfilename": "full_numbers/extra-00002-of-00004.parquet"
+                },
+                {
+                  "rfilename": "full_numbers/extra-00003-of-00004.parquet"
+                }
+              ],
+              "card_data": {
+                "license": [
+                  "other"
+                ],
+                "language": [
+                  "en"
+                ],
+                "tags": [],
+                "datasets": [],
+                "task_categories": [
+                  "image-classification",
+                  "object-detection"
+                ],
+                "size_categories": [
+                  "100K<n<1M"
+                ],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "task_categories:image-classification",
+                "task_categories:object-detection",
+                "annotations_creators:machine-generated",
+                "annotations_creators:expert-generated",
+                "language_creators:machine-generated",
+                "multilinguality:monolingual",
+                "source_datasets:original",
+                "language:en",
+                "license:other",
+                "size_categories:100K<n<1M",
+                "format:parquet",
+                "modality:image",
+                "library:datasets",
+                "library:dask",
+                "library:mlcroissant",
+                "library:polars",
+                "region:us"
+              ],
+              "readme": "---\nannotations_creators:\n- machine-generated\n- expert-generated\nlanguage_creators:\n- machine-generated\nlanguage:\n- en\nlicense:\n- other\nmultilinguality:\n- monolingual\nsize_categories:\n- 100K<n<1M\nsource_datasets:\n- original\ntask_categories:\n- image-classification\n- object-detection\ntask_ids: []\npaperswithcode_id: svhn\npretty_name: Street View House Numbers\ndataset_info:\n- config_name: cropped_digits\n  features:\n  - name: image\n    dtype: image\n  - name: label\n    dtype:\n      class_label:\n        names:\n          '0': '0'\n          '1': '1'\n          '2': '2'\n          '3': '3'\n          '4': '4'\n          '5': '5'\n          '6': '6'\n          '7': '7'\n          '8': '8'\n          '9': '9'\n  splits:\n  - name: train\n    num_bytes: 128062110.875\n    num_examples: 73257\n  - name: test\n    num_bytes: 44356634.0\n    num_examples: 26032\n  - name: extra\n    num_bytes: 965662156.625\n    num_examples: 531131\n  download_size: 1205637083\n  dataset_size: 1138080901.5\n- config_name: full_numbers\n  features:\n  - name: image\n    dtype: image\n  - name: digits\n    sequence:\n    - name: bbox\n      sequence: int32\n      length: 4\n    - name: label\n      dtype:\n        class_label:\n          names:\n            '0': '0'\n            '1': '1'\n            '2': '2'\n            '3': '3'\n            '4': '4'\n            '5': '5'\n            '6': '6'\n            '7': '7'\n            '8': '8'\n            '9': '9'\n  splits:\n  - name: train\n    num_bytes: 389782132.75\n    num_examples: 33402\n  - name: test\n    num_bytes: 271279491.86\n    num_examples: 13068\n  - name: extra\n    num_bytes: 1864796784.036\n    num_examples: 202353\n  download_size: 2530154571\n  dataset_size: 2525858408.646\nconfigs:\n- config_name: cropped_digits\n  data_files:\n  - split: train\n    path: cropped_digits/train-*\n  - split: test\n    path: cropped_digits/test-*\n  - split: extra\n    path: cropped_digits/extra-*\n- config_name: full_numbers\n  data_files:\n  - split: train\n    path: full_numbers/train-*\n  - split: test\n    path: full_numbers/test-*\n  - split: extra\n    path: full_numbers/extra-*\n---\n\n# Dataset Card for Street View House Numbers\n\n## Table of Contents\n- [Table of Contents](#table-of-contents)\n- [Dataset Description](#dataset-description)\n  - [Dataset Summary](#dataset-summary)\n  - [Supported Tasks and Leaderboards](#supported-tasks-and-leaderboards)\n  - [Languages](#languages)\n- [Dataset Structure](#dataset-structure)\n  - [Data Instances](#data-instances)\n  - [Data Fields](#data-fields)\n  - [Data Splits](#data-splits)\n- [Dataset Creation](#dataset-creation)\n  - [Curation Rationale](#curation-rationale)\n  - [Source Data](#source-data)\n  - [Annotations](#annotations)\n  - [Personal and Sensitive Information](#personal-and-sensitive-information)\n- [Considerations for Using the Data](#considerations-for-using-the-data)\n  - [Social Impact of Dataset](#social-impact-of-dataset)\n  - [Discussion of Biases](#discussion-of-biases)\n  - [Other Known Limitations](#other-known-limitations)\n- [Additional Information](#additional-information)\n  - [Dataset Curators](#dataset-curators)\n  - [Licensing Information](#licensing-information)\n  - [Citation Information](#citation-information)\n  - [Contributions](#contributions)\n\n## Dataset Description\n\n- **Homepage:** http://ufldl.stanford.edu/housenumbers\n- **Repository:**\n- **Paper:** [Reading Digits in Natural Images with Unsupervised Feature Learning](http://ufldl.stanford.edu/housenumbers/nips2011_housenumbers.pdf)\n- **Leaderboard:** https://paperswithcode.com/sota/image-classification-on-svhn\n- **Point of Contact:** streetviewhousenumbers@gmail.com\n\n### Dataset Summary\n\nSVHN is a real-world image dataset for developing machine learning and object recognition algorithms with minimal requirement on data preprocessing and formatting. It can be seen as similar in flavor to MNIST (e.g., the images are of small cropped digits), but incorporates an order of magnitude more labeled data (over 600,000 digit images) and comes from a significantly harder, unsolved, real world problem (recognizing digits and numbers in natural scene images). SVHN is obtained from house numbers in Google Street View images. The dataset comes in two formats:\n1. Original images with character level bounding boxes.\n2. MNIST-like 32-by-32 images centered around a single character (many of the images do contain some distractors at the sides).\n\n### Supported Tasks and Leaderboards\n\n- `object-detection`: The dataset can be used to train a model for digit detection.\n- `image-classification`: The dataset can be used to train a model for Image Classification where the task is to predict a correct digit on the image. The leaderboard for this task is available at:\nhttps://paperswithcode.com/sota/image-classification-on-svhn\n\n### Languages\n\nEnglish\n\n## Dataset Structure\n\n### Data Instances\n\n#### full_numbers\n\nThe original, variable-resolution, color house-number images with character level bounding boxes.\n\n```\n{\n  'image': <PIL.PngImagePlugin.PngImageFile image mode=RGB size=98x48 at 0x259E3F01780>,\n  'digits': {\n    'bbox': [\n      [36, 7, 13, 32],\n      [50, 7, 12, 32]\n    ], \n    'label': [6, 9]\n  }\n}\n```\n\n#### cropped_digits\n\nCharacter level ground truth in an MNIST-like format. All digits have been resized to a fixed resolution of 32-by-32 pixels. The original character bounding boxes are extended in the appropriate dimension to become square windows, so that resizing them to 32-by-32 pixels does not introduce aspect ratio distortions. Nevertheless this preprocessing introduces some distracting digits to the sides of the digit of interest.\n\n```\n{\n  'image': <PIL.PngImagePlugin.PngImageFile image mode=RGB size=32x32 at 0x25A89494780>,\n  'label': 1\n}\n```\n\n### Data Fields\n\n#### full_numbers\n\n- `image`: A `PIL.Image.Image` object containing the image. Note that when accessing the image column: `dataset[0][\"image\"]` the image file is automatically decoded. Decoding of a large number of image files might take a significant amount of time. Thus it is important to first query the sample index before the `\"image\"` column, *i.e.* `dataset[0][\"image\"]` should **always** be preferred over `dataset[\"image\"][0]`\n- `digits`: a dictionary containing digits' bounding boxes and labels\n  - `bbox`: a list of bounding boxes (in the [coco](https://albumentations.ai/docs/getting_started/bounding_boxes_augmentation/#coco) format) corresponding to the digits present on the image\n  - `label`: a list of integers between 0 and 9 representing the digit.\n\n#### cropped_digits\n\n- `image`: A `PIL.Image.Image` object containing the image. Note that when accessing the image column: `dataset[0][\"image\"]` the image file is automatically decoded. Decoding of a large number of image files might take a significant amount of time. Thus it is important to first query the sample index before the `\"image\"` column, *i.e.* `dataset[0][\"image\"]` should **always** be preferred over `dataset[\"image\"][0]`\n- `digit`: an integer between 0 and 9 representing the digit.\n\n### Data Splits\n\n#### full_numbers\n\nThe data is split into training, test and extra set. The training set contains 33402 images, test set 13068 and the extra set 202353 images.\n\n#### cropped_digits\n\nThe data is split into training, test and extra set. The training set contains 73257 images, test set 26032 and the extra set 531131 images.\n\nThe extra set can be used as extra training data. The extra set was obtained in a similar manner to the training and test set, but with the increased detection threshold in order to generate this large amount of labeled data. The SVHN extra subset is thus somewhat biased toward less difficult detections, and is thus easier than SVHN train/SVHN test.\n\n## Dataset Creation\n\n### Curation Rationale\n\nFrom the paper:\n> As mentioned above, the venerable MNIST dataset has been a valuable goal post for researchers seeking to build better learning systems whose benchmark performance could be expected to translate into improved performance on realistic applications. However, computers have now reached essentially human levels of performance on this problem—a testament to progress in machine learning and computer vision. The Street View House Numbers (SVHN) digit database that we provide can be seen as similar in flavor to MNIST (e.g., the images are of small cropped characters), but the SVHN dataset incorporates an order of magnitude more labeled data and comes from a significantly harder, unsolved, real world problem. Here the gap between human performance and state of the art feature representations is significant. Going forward, we expect that this dataset may fulfill a similar role for modern feature learning algorithms: it provides a new and difficult benchmark where increased performance can be expected to translate into tangible gains on a realistic application.\n\n### Source Data\n\n#### Initial Data Collection and Normalization\n\nFrom the paper:\n> The SVHN dataset was obtained from a large number of Street View images using a combination\nof automated algorithms and the Amazon Mechanical Turk (AMT) framework, which was\nused to localize and transcribe the single digits. We downloaded a very large set of images from\nurban areas in various countries.\n\n#### Who are the source language producers?\n\n[More Information Needed]\n\n### Annotations\n\n#### Annotation process\n\nFrom the paper:\n> From these randomly selected images, the house-number patches were extracted using a dedicated sliding window house-numbers detector using a low threshold on the detector’s confidence score in order to get a varied, unbiased dataset of house-number signs. These low precision detections were screened and transcribed by AMT workers.\n\n#### Who are the annotators?\n\nThe AMT workers.\n\n### Personal and Sensitive Information\n\n[More Information Needed]\n\n## Considerations for Using the Data\n\n### Social Impact of Dataset\n\n[More Information Needed]\n\n### Discussion of Biases\n\n[More Information Needed]\n\n### Other Known Limitations\n\n[More Information Needed]\n\n## Additional Information\n\n### Dataset Curators\n\nYuval Netzer, Tao Wang, Adam Coates, Alessandro Bissacco, Bo Wu and Andrew Y. Ng \n\n### Licensing Information\n\nNon-commerical use only.\n\n### Citation Information\n\n```\n@article{netzer2011reading,\n  title={Reading digits in natural images with unsupervised feature learning},\n  author={Netzer, Yuval and Wang, Tao and Coates, Adam and Bissacco, Alessandro and Wu, Bo and Ng, Andrew Y},\n  year={2011}\n}\n```\n\n### Contributions\n\nThanks to [@mariosasko](https://github.com/mariosasko) for adding this dataset.",
+              "extracted_code": ""
+            },
+            {
+              "id": "dpdl-benchmark/svhn_cropped_balanced",
+              "author": "dpdl-benchmark",
+              "sha": "5ce6dccf16c8cff52ae16b11e7f2797debc31815",
+              "created_at": "2024-08-09T10:10:15+00:00",
+              "last_modified": "2024-08-09T10:10:26+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 78,
+              "likes": 0,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "data/test-00000-of-00001.parquet"
+                },
+                {
+                  "rfilename": "data/train-00000-of-00001.parquet"
+                }
+              ],
+              "card_data": {
+                "language": [],
+                "tags": [],
+                "datasets": [],
+                "task_categories": [],
+                "size_categories": [],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "size_categories:10K<n<100K",
+                "format:parquet",
+                "modality:image",
+                "library:datasets",
+                "library:pandas",
+                "library:mlcroissant",
+                "library:polars",
+                "region:us"
+              ],
+              "readme": "---\ndataset_info:\n  features:\n  - name: image\n    dtype: image\n  - name: label\n    dtype:\n      class_label:\n        names:\n          '0': '0'\n          '1': '1'\n          '2': '2'\n          '3': '3'\n          '4': '4'\n          '5': '5'\n          '6': '6'\n          '7': '7'\n          '8': '8'\n          '9': '9'\n  splits:\n  - name: train\n    num_bytes: 90862713.05949003\n    num_examples: 50000\n  - name: test\n    num_bytes: 18172542.611898005\n    num_examples: 10000\n  download_size: 116100876\n  dataset_size: 109035255.67138803\nconfigs:\n- config_name: default\n  data_files:\n  - split: train\n    path: data/train-*\n  - split: test\n    path: data/test-*\n---\n",
+              "extracted_code": ""
+            },
+            {
+              "id": "dpdl-benchmark/svhn_cropped",
+              "author": "dpdl-benchmark",
+              "sha": "d25a88dbb91603230e2807af7be3200f5e9fb8a4",
+              "created_at": "2024-05-20T15:00:07+00:00",
+              "last_modified": "2024-08-09T09:59:43+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 22,
+              "likes": 0,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "data/extra-00000-of-00002.parquet"
+                },
+                {
+                  "rfilename": "data/extra-00001-of-00002.parquet"
+                },
+                {
+                  "rfilename": "data/test-00000-of-00001.parquet"
+                },
+                {
+                  "rfilename": "data/test_balanced-00000-of-00001.parquet"
+                },
+                {
+                  "rfilename": "data/train-00000-of-00001.parquet"
+                },
+                {
+                  "rfilename": "data/train_balanced-00000-of-00001.parquet"
+                }
+              ],
+              "card_data": {
+                "language": [],
+                "tags": [],
+                "datasets": [],
+                "task_categories": [],
+                "size_categories": [],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "size_categories:100K<n<1M",
+                "format:parquet",
+                "modality:image",
+                "library:datasets",
+                "library:dask",
+                "library:mlcroissant",
+                "library:polars",
+                "region:us"
+              ],
+              "readme": "---\ndataset_info:\n  features:\n  - name: image\n    dtype: image\n  - name: label\n    dtype:\n      class_label:\n        names:\n          '0': '0'\n          '1': '1'\n          '2': '2'\n          '3': '3'\n          '4': '4'\n          '5': '5'\n          '6': '6'\n          '7': '7'\n          '8': '8'\n          '9': '9'\n  splits:\n  - name: train\n    num_bytes: 128062110.875\n    num_examples: 73257\n  - name: test\n    num_bytes: 44356634.0\n    num_examples: 26032\n  - name: extra\n    num_bytes: 965662156.625\n    num_examples: 531131\n  - name: train_balanced\n    num_bytes: 90862463.02701217\n    num_examples: 50000\n  - name: test_balanced\n    num_bytes: 18172492.605402432\n    num_examples: 10000\n  download_size: 1321906455\n  dataset_size: 1247115857.1324146\nconfigs:\n- config_name: default\n  data_files:\n  - split: train\n    path: data/train-*\n  - split: test\n    path: data/test-*\n  - split: extra\n    path: data/extra-*\n  - split: train_balanced\n    path: data/train_balanced-*\n  - split: test_balanced\n    path: data/test_balanced-*\n---\n",
+              "extracted_code": ""
+            }
+          ]
+        }
+      }
     }
   },
   "idea_info_history": [
