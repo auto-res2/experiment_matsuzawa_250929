@@ -1,0 +1,17 @@
+
+Input:
+# Task
+You carefully read the contents of the “Paper Outline” and select one GitHub link from the “GitHub URLs List” that you think is most relevant to the contents.
+# Constraints
+- Output the index number corresponding to the selected GitHub URL.
+- Be sure to select only one GitHub URL.
+- If there is no related GitHub link, output None.
+# Paper Outline
+The methodology frames hyperparameter optimization as a bi-level optimization problem, aiming to minimize a criterion (e.g., held-out loss, SURE) over hyperparameters, subject to the inner problem of solving the Lasso-type model for regression coefficients. The core technique involves estimating the gradient with respect to the hyperparameters using implicit differentiation. Instead of solving a large linear system, the proposed 'Implicit Forward Iterative Differentiation' (Algorithm 2) leverages the fixed-point iteration property of proximal Block Coordinate Descent (BCD) algorithms. It uses a key observation that after a finite number of iterations, the support (non-zero coefficients) of the Lasso solution is identified, making the partial derivatives constant. This allows for decoupling the computation: first, the regression coefficients are computed using any state-of-the-art convex solver, and then the Jacobian is computed in a separate step by applying forward differentiation recursion steps restricted to the identified support. This leads to efficient computation and linear convergence rates for the Jacobian once the support is identified. The method is compared against traditional implicit differentiation (solving an s x s linear system), forward iterative differentiation, and non-gradient methods like grid-search, random-search, lattice hypercube sampling, and Bayesian optimization.
+
+# GitHub URLs List
+['https://github.com/QB3/sparse-ho', 'https://github.com/fabianp/hoag', 'https://github.com/SMTorg/smt']
+Output:
+{
+    "index": 0
+}
