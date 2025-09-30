@@ -1,0 +1,17 @@
+
+Input:
+# Task
+You carefully read the contents of the “Paper Outline” and select one GitHub link from the “GitHub URLs List” that you think is most relevant to the contents.
+# Constraints
+- Output the index number corresponding to the selected GitHub URL.
+- Be sure to select only one GitHub URL.
+- If there is no related GitHub link, output None.
+# Paper Outline
+The core methodology extends Expected Hypervolume Improvement (EHVI) to noisy, parallel settings. NEHVI is derived by iterating the expectation over the posterior distribution of function values at previously evaluated points, thereby integrating over the uncertainty in the Pareto frontier. Its parallel variant, qNEHVI, uses a sequential greedy approximation for batch selection. To address computational complexity, a Cached Box Decomposition (CBD) technique is introduced where Pareto frontiers and box decompositions are computed once for fixed posterior samples and cached for the duration of acquisition function optimization. This allows efficient conditional posterior sampling for new candidates using low-rank updates and the reparameterization trick. The acquisition function (ˆαNEHVI) is differentiable, enabling efficient gradient-based optimization with methods like L-BFGS-B, and theoretical convergence guarantees are provided under Sample Average Approximation (SAA). A cheaper approximation, qNEHVI-1, utilizes a single approximate Gaussian Process sample path via Random Fourier Features (RFFs) for faster optimization.
+
+# GitHub URLs List
+['https://github.com/HIPS/Spearmint', 'https://github.com/yunshengtian/DGEMO', 'https://github.com/pytorch/botorch', 'https://github.com/yunshengtian/DGEMO', 'https://github.com/CMA-ES/pycomocma']
+Output:
+{
+    "index": 2
+}
