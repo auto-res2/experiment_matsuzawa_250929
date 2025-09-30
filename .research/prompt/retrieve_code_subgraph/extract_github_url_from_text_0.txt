@@ -1,0 +1,17 @@
+
+Input:
+# Task
+You carefully read the contents of the “Paper Outline” and select one GitHub link from the “GitHub URLs List” that you think is most relevant to the contents.
+# Constraints
+- Output the index number corresponding to the selected GitHub URL.
+- Be sure to select only one GitHub URL.
+- If there is no related GitHub link, output None.
+# Paper Outline
+Deep Ranking Ensembles (DRE) utilize an ensemble of diverse neural networks, each trained to output a ranking score for hyperparameter configurations. These networks are optimized using a weighted list-wise L2R loss, which assigns higher penalties to top-performing configurations, emphasizing their correct rank prediction. Uncertainty estimation is achieved by training multiple diverse neural scorers with stochastic gradient descent and different random seeds. The method incorporates meta-learning by pre-training these rankers on evaluations from previous datasets and boosts transfer quality by integrating dataset meta-features, extracted using a Deep Set architecture, as additional input to the scorers. During Bayesian Optimization, the ensemble's posterior mean and variance of estimated ranks are used by acquisition functions like Expected Improvement to guide the search for the next optimal configuration.
+
+# GitHub URLs List
+['https://github.com/releaunifreiburg/HPO-B', 'https://github.com/huawei-noah/HEBO']
+Output:
+{
+    "index": 1
+}
