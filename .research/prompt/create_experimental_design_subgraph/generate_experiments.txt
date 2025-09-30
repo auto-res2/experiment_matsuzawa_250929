@@ -1,0 +1,159 @@
+
+Input:
+You are a cutting-edge AI researcher. Based on the new method described in # New Methods and the experimental policy outlined in # Experiment Strategy, please generate 1 distinct Experiment objects.
+
+# Instructions
+- Generate 1 major experimental lines (Experiment objects) based on the experimental strategy.
+- Each Experiment (identified by experiment_id) represents a different experimental perspective or validation angle.
+- Within each Experiment, run_variations are the variations that will be compared against each other (e.g., ["baseline", "proposed"], ["full-method", "ablation-A", "ablation-B"]).
+- Keep run_variations to 3-5 variations per experiment (including baseline and proposed method) to ensure reasonable execution time and resource usage.
+- Each Experiment should:
+    - Have a unique experiment_id (e.g., "exp-1", "exp-2", "exp-3")
+    - Have a clear description of its objective or hypothesis
+    - Have a list of run_variations that will be compared within this experiment
+    - Cover different aspects of validating the proposed method
+- The experiments should be complementary and cover various validation angles such as:
+    - Main performance validation
+    - Ablation studies
+    - Robustness tests
+    - Comparison with baselines
+    - Hyperparameter sensitivity analysis
+    - Computational efficiency analysis
+- Each experiment will have its own GitHub branch and code.
+- The run_variations within each experiment define different configurations or conditions to test (e.g., different hyperparameters, different baselines, different datasets).
+
+- Design the details of each experiment assuming the execution environment specified in "Experimental Environment."
+- The experimental details should include the following for each experiment:
+    - Machine learning / deep learning models to be used
+        - If necessary, also include baseline models.
+    - Datasets
+    - Dataset preprocessing methods
+    - Data splitting method (train/val/test, cross-validation)
+    - Number of repetitions (number of seeds), averaging method, and selection criteria (best-val, last, early stopping)
+    - Evaluation metrics
+        - Primary and secondary metrics
+        - Examples: Accuracy / F1 / AUROC (classification), RMSE / MAE (regression), mAP (detection), mIoU (segmentation), BLEU / ROUGE / METEOR (generation), NDCG / MRR (ranking), ECE / Brier Score (calibration)
+    - Comparisons
+        - Prior methods (strong baselines, SOTA, simple baselines), etc.
+        - If there are implementation or configuration differences, note the adjustments in footnotes.
+    - Methods for analyzing important hyperparameters (e.g., learning rate, temperature, k, thresholds)
+    - Methods for assessing robustness
+        - Resistance to noise injection, distribution shift (OOD), adversarial perturbations, and domain transfer
+    - Computation of FLOPs, training/inference time, memory usage, and cost / wall-clock time
+    - Example experimental code
+- Avoid excessive redundancy across experiments. When a single experiment can cover multiple validation items, integrate them appropriately.
+- NO-FALLBACK CONSTRAINT: Never suggest using synthetic/dummy/placeholder data.
+- Also provide:
+    - expected_models: A list of specific model names/architectures that will be used across all experiments (e.g., ["ResNet-50", "BERT-base", "GPT-3.5-turbo"])
+    - expected_datasets: A list of specific dataset names that will be used across all experiments (e.g., ["CIFAR-10", "ImageNet", "IMDB Reviews"])
+
+## Output Format
+Please provide:
+- experiments: A list of 1 Experiment objects, each with:
+    - experiment_id: Unique identifier
+    - run_variations: List of variation names/identifiers for this experiment
+    - description: Detailed description including all aspects mentioned in the instructions
+- expected_models: List of model names/architectures
+- expected_datasets: List of dataset names
+
+# Experimental Environment
+NVIDIA Tesla T4
+VRAM：16 GB
+RAM：500 MB
+
+# Current Research Method (Target for Experiment Design)
+{
+    "Open Problems": "Current progressive multi-fidelity schedulers such as PASHA decide when to raise the maximum training budget by monitoring whether the ranking of the two top rungs has stabilised.  The heuristic relies on an ad-hoc ε–threshold that is estimated from past score differences and may be either too conservative (wasting resources) or too aggressive (prematurely stopping promising runs), especially when the metric is noisy or non-stationary.",
+    "Methods": "Surrogate-Assisted PASHA (SA-PASHA)\n1. Keep the original asynchronous Successive-Halving loop of PASHA (same rung creation, same promotion rule).\n2. Replace the ε–based ‘ranking-stability’ test with a probabilistic confidence test obtained from a Deep Ranking Ensemble (DRE) surrogate.\n   2.1  After every promotion event, collect the configurations contained in the two currently highest rungs.\n   2.2  Train / update the DRE model on all evaluated configurations (budget-normalised inputs, final scores, as in the original DRE paper).\n   2.3  For the K configurations in the union of the two rungs, sample M ranking vectors from the DRE ensemble and compute the empirical pair-wise agreement matrix A(i,j)=P(ci better than cj).\n   2.4  Compute the average rank-confidence ρ =  (1/K) Σ_i ( |{ j : A(i,j)>0.5 }| / (K−1) ).  ρ≈1 indicates a very stable ranking.\n3. Decision rule: keep the current maximum budget T_max as long as ρ ≥ τ (τ=0.9 by default); otherwise double T_max exactly as in PASHA.  No hand-crafted ε is required.\n4. All other PASHA components (soft vs. hard ranking, asynchronous worker management, BO searcher compatibility) remain unchanged.",
+    "Experimental Setup": "Benchmarks:  \n• NASBench-201 (CIFAR-10/100, ImageNet16-120)\n• LCBench (35 tabular data sets, 51 epochs)\n• PD1 (WMT15-DeEn, ImageNet) large-scale HPO tasks  \nSchedulers compared: ASHA, PASHA, SA-PASHA (ours) – all fed by the same random sampler and by MOBSTER (BO) to test searcher-agnostic behaviour.  \nResources: 4 parallel GPUs (NASBench), 4 CPU workers (LCBench/PD1).  Hyper-parameters: τ∈{0.8,0.9,0.95}; DRE ensemble size=10, list-wise loss, 100 meta-epochs per update.  5 random seeds.",
+    "Experimental Code": "# pseudo-code fragment\nwhile True:\n    cid, res = worker_pool.wait_next_result()\n    pasha_state.update(cid, res)\n    if pasha_state.promotion_event():\n        top, prev = pasha_state.top_two_rungs()\n        X, y = pasha_state.all_evaluations()\n        dre.fit(X, y)                      # incremental update\n        ranks = dre.sample_rankings(top+prev, M=256)\n        A = pairwise_agreement(ranks)      # K x K matrix\n        rho = A.mean(dim=1).mean()\n        if rho < tau:\n            pasha_state.double_max_resources()\n",
+    "Expected Result": "Across all benchmarks SA-PASHA matches PASHA’s final best score but reduces consumed FLOPs / wall-clock by a further 10-30 % because it more reliably detects ranking convergence in noisy regimes.  On LCBench, where few rungs exist, SA-PASHA behaves identically to PASHA (no degradation).  Surrogate update time adds <3 % overhead.",
+    "Expected Conclusion": "Replacing PASHA’s heuristic ε-test by a light-weight rank-uncertainty test computed with an existing Deep Ranking Ensemble surrogate removes the only tunable parameter of PASHA, yields an automatic, data-dependent stopping rule, and tangibly improves resource efficiency with minimal code changes.  This demonstrates that uncertainty-aware surrogates can complement progressive resource schedulers without altering their asynchronous nature."
+}
+
+# Experiment Strategy
+Objective:
+Build a single, coherent evaluation pipeline that can be reused on every benchmark to show that SA-PASHA is (1) at least as good as PASHA in terms of final solution quality, (2) clearly more resource-efficient, (3) robust to noise, searcher choice and hyper-parameters, and (4) free of the hand-crafted ε weakness.
+
+1. Validation Aspects
+   A. Optimisation quality – best objective value reached by the scheduler under a fixed global budget.
+   B. Sample/compute efficiency – FLOPs, wall-clock and number of completed configurations required to reach (i) the same quality as PASHA or (ii) 95 % of the global optimum.
+   C. Robustness – variance across 5 random seeds, sensitivity to metric noise (synthetic noise injection), and to τ ∈ {0.8,0.9,0.95}.
+   D. Generalisation – behaviour across three benchmark families, two searchers (random, MOBSTER) and CPU vs GPU workers.
+   E. Overhead & scalability – extra VRAM, RAM (<500 MB target) and CPU/GPU time introduced by the surrogate, plus behaviour when doubling worker count or maximum budget.
+
+2. Necessary Comparisons
+   1. Baselines: ASHA (classical) and PASHA (ε-heuristic).
+   2. Ablations:  
+      • SA-PASHA-noDRE (replace surrogate by uniform noise – isolates usefulness of confidence estimate)  
+      • SA-PASHA-fixBudget (never doubles budget – isolates scheduling decisions)  
+      • SA-PASHA-smallEns (ensemble size = 3) – checks memory/overhead trade-off.
+   3. State-of-the-art: one additional multi-fidelity scheduler with published open code (e.g. HYBAND or DEHB) to demonstrate competitiveness beyond PASHA.
+
+3. Experimental Angles
+   • Quantitative curves: (a) best-seen objective vs wall-clock, (b) regret vs consumed FLOPs, (c) rank-confidence ρ trajectory vs time.
+   • Tabular summaries: final score, area-under-curve (AUC), time-to-X metrics, mean ± sd over seeds.
+   • Qualitative: violin plots of ρ, heatmaps of pairwise agreement matrices, case-study traces where ε misfires but ρ succeeds.
+   • Cost profiling: stacked bar showing % time on training, surrogate fitting, bookkeeping.
+
+4. Multi-Perspective Demonstrations
+   Perspective 1 ‑ Efficiency: show statistically significant (paired t-test, p<0.05) reduction of ≥10 % in FLOPs/wall-clock for equal quality.
+   Perspective 2 ‑ Quality: show no significant loss (>1 % relative) in best test accuracy/perplexity at end of fixed budget.
+   Perspective 3 ‑ Robustness: show coefficient of variation across seeds not worse than PASHA; performance drop under added noise ≤2 % absolute, whereas PASHA degrades >2 %.
+   Perspective 4 ‑ Practicality: show surrogate memory footprint <150 MB and extra compute <3 % of total, satisfying Tesla T4 (16 GB VRAM, 500 MB RAM) constraints.
+
+5. Success Criteria (Pass/Fail)
+   • Efficiency Gain: median 10 % or more compute saving on ≥70 % of benchmark/searcher pairs.
+   • Quality Parity: Δ(best score) ∈ [-1 %, +1 %] of PASHA on all tasks.
+   • Robustness: standard deviation across seeds ≤ PASHA’s standard deviation on ≥80 % of tasks.
+   • Overhead: surrogate adds <5 % extra wall-clock and fits within memory budget.
+   Meeting all four constitutes success.
+
+6. Execution Protocol (common to all experiments)
+   a. Fix a global wall-clock/FLOP budget per benchmark that saturates PASHA.
+   b. Run every scheduler/ablation for 5 seeds, capture full event logs.
+   c. Post-process logs with a unified analysis script that emits the quantitative and qualitative artefacts described above and automatically checks the success criteria.
+   d. Save raw and aggregated results to a public repository to ensure reproducibility.
+
+7. Practical Constraints & Mitigations
+   • Tesla T4 VRAM: cap per-model batch sizes; ensure DRE uses half-precision; off-load numpy buffers to CPU.
+   • 500 MB RAM: stream log files to disk and keep only last N events in memory; restrict ensemble size and feature dimensionality.
+   • Parallelism: limit to 4 GPU or 4 CPU workers as in spec; use asynchronous torch dataloaders to overlap compute.
+
+This unified experimental strategy guarantees that each subsequent experiment tests SA-PASHA on the same axes, with the same baselines, and against clear, measurable success thresholds, providing a holistic demonstration of the method’s effectiveness.
+
+---
+
+
+# Reference Information from Previous Iteration
+
+Output:
+{
+    "experiments": [
+        {
+            "experiment_id": "exp-1",
+            "run_variations": [
+                "ASHA-baseline",
+                "PASHA-eps",
+                "SA-PASHA-full",
+                "SA-PASHA-noDRE",
+                "HYBAND"
+            ],
+            "description": "Objective: Jointly validate optimisation quality and compute-efficiency of the proposed Surrogate-Assisted PASHA (SA-PASHA) versus strong baselines, plus an ablation that removes the Deep-Ranking Ensemble (noDRE).  \n\nBenchmarks / Tasks\n• NASBench-201 – CIFAR-10, CIFAR-100, ImageNet16-120 (GPU workers).  \n• LCBench – 35 tabular data sets, 51-epoch MLP/XGBoost training traces (CPU workers).  \n• PD1 – WMT15-DeEn Transformer (base) 30-epoch runs (GPU workers).  \n\nModels under optimisation  \n• NASBench-201 CNN cell (≈0.7 M params)  \n• XGBoost & 3-layer MLP (from LCBench)  \n• Transformer-base (6-layer) for WMT15-DeEn  \n\nDataset Pre-processing  \n• CIFAR/ImageNet16: standardised RGB normalisation, random crop/flip.  \n• WMT15: Moses tokenisation, 32 K BPE.  \n• Tabular: median impute missing, one-hot categorical, z-score numeric.  \n\nSplitting  \n• All image datasets: train (45 k) / val (5 k) / test (10 k).  \n• WMT15: train (4.5 M), news16 (3 k) for val, news17 (3 k) test.  \n• LCBench provides fixed train/val/test splits.  \n\nScheduler Configuration per variation  \n• ASHA-baseline: rung halving ratio η=3, max budget = full trace length.  \n• PASHA-eps: ε estimated from past deltas (original paper).  \n• SA-PASHA-full: τ=0.9, DRE ensemble size=10.  \n• SA-PASHA-noDRE: confidence ρ computed from uniform noise → isolates surrogate benefit.  \n• HYBAND: η=3, default θ parameters.  \n\nSearcher  \n• Random searcher and MOBSTER (BO) — each variation is executed twice (one per searcher).  \n\nRepetitions & Selection  \n• 5 random seeds × 2 searchers × 3 benchmarks = 30 runs per variation.  \n• For each run we record full trace; report (a) final test metric of best-val configuration, (b) last-epoch metric.  \n\nEvaluation Metrics  \nPrimary:  \n• NASBench/Tabular – regret (lower is better) + accuracy (%)  \n• WMT15 – BLEU ↑  \nSecondary: FLOPs, wall-clock (s), completed configs, memory (MB).  \nRobustness: coefficient of variation (CV) across seeds, performance under injected Gaussian score noise σ = {0.5 %, 1 %}.  \n\nHyper-parameter Sensitivity  \nGrid over τ ∈ {0.8,0.9,0.95} for SA-PASHA; ensemble size ∈ {3,10}.  Analyse AUC(regret) vs τ and memory vs ensemble size.  \n\nComputational Footprint  \n• PyTorch-profile hooks compute per-step FLOPs and GPU memory.  \n• Wall-clock captured via time.time(); averaged over 5 seeds.  \n\nRobustness Tests  \n1. Noise injection: add ε~N(0,σ) to validation metric before scheduler sees it.  \n2. Distribution shift: retrain best architecture from CIFAR-10 on SVHN without re-search; report accuracy drop.  \n3. Worker scaling: repeat NASBench-201 with 8 GPU workers on multi-node cluster (sanity check scalability).  \n\nSuccess Criteria  \n• Efficiency gain ≥10 % FLOPs vs PASHA on ≥70 % task/searcher pairs (paired t-test p<0.05).  \n• Quality parity Δ≤1 % relative on all tasks.  \n• CV not larger than PASHA on ≥80 % cases.  \n• Surrogate overhead <5 % wall-clock, <150 MB GPU.  \n\nExample Code Snippet  \n```\nfrom hpobench.schedulers import ASHA, PASHA, SAPASHA, HYBAND\nfrom dre import DeepRankingEnsemble\nfrom utils import profile\n\nsched = SAPASHA(tau=0.9, dre=DeepRankingEnsemble(M=10))\nfor seed in range(5):\n    for bench in BENCHES:\n        for searcher in [Random(), MOBSTER()]:\n            state = sched.init(bench, searcher, seed)\n            while not state.budget_exhausted():\n                cid, res = state.wait_next()\n                state.update(cid, res)\n            log_results(state, bench, seed)\nprofile.analyse('logs/*.json')\n```\nAll experiments run on NVIDIA Tesla T4 (16 GB); DRE uses torch.float16 to stay within 150 MB VRAM.  \n\nExpected Outcome  \nSA-PASHA-full matches PASHA’s final accuracy/BLEU but reduces median FLOPs and wall-clock by 12-28 %. Ablation noDRE loses this advantage, confirming surrogate value. HYBAND is competitive in quality but 15-35 % slower.  \n\n"
+        }
+    ],
+    "expected_models": [
+        "NASBench201-CNN",
+        "XGBoost",
+        "MLP-3layer",
+        "Transformer-base"
+    ],
+    "expected_datasets": [
+        "CIFAR-10",
+        "CIFAR-100",
+        "ImageNet16-120",
+        "LCBench-Tabular",
+        "WMT15-DeEn",
+        "SVHN"
+    ]
+}
