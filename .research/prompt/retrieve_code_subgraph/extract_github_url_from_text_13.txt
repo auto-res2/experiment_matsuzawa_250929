@@ -1,0 +1,17 @@
+
+Input:
+# Task
+You carefully read the contents of the “Paper Outline” and select one GitHub link from the “GitHub URLs List” that you think is most relevant to the contents.
+# Constraints
+- Output the index number corresponding to the selected GitHub URL.
+- Be sure to select only one GitHub URL.
+- If there is no related GitHub link, output None.
+# Paper Outline
+PASHA is an extension of ASHA, inspired by the 'doubling trick' concept. It starts with a small initial maximum amount of resources and progressively increases them only if the ranking of configurations in the top two rungs (rounds of promotion) has not stabilized. The key idea is to stop early when rankings are stable. To handle noise in the training process, PASHA employs a 'soft ranking' mechanism, where configurations are considered equivalent if their performance difference is smaller than a dynamically estimated value ϵ. This ϵ value is automatically estimated by identifying pairs of configurations that repeatedly swap their ranks across different resource levels (criss-crossing behavior) and calculating it as the N-th (90th in experiments) percentile of the performance differences of these criss-crossing pairs.
+
+# GitHub URLs List
+['https://github.com/ondrejbohdal/pasha']
+Output:
+{
+    "index": 0
+}
