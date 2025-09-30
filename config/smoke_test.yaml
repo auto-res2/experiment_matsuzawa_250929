@@ -1,0 +1,12 @@
+# config/smoke_test.yaml
+seed: 0
+dataset: synthetic
+model: mlp
+n_features: 20
+n_classes: 2
+max_epochs: 16
+max_trials: 20
+search_space:
+  lr: [0.0001, 0.01]
+  hidden_dim: [32, 64]
+  dropout: [0.0, 0.3]

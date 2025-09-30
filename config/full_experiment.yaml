@@ -1,0 +1,24 @@
+# config/full_experiment.yaml
+# Main experiment configuration for CIFAR-10 classification with ResNet-18 and
+# scheduler comparison (ASHA, PASHA, SA-PASHA, HYBAND).
+
+seed: 0
+
+# Dataset & model -------------------------------------------------------------
+dataset: cifar10              # loaded from uoft-cs/cifar10 (Hugging Face hub)
+model: resnet18
+
+# Global search / training budget --------------------------------------------
+max_epochs: 50                # per-configuration budget cap (can be increased)
+max_trials: 100               # total number of configurations the scheduler may spawn
+
+# Hyper-parameter search-space -------------------------------------------------
+#  Notes:
+#   • Keys ending in "_log" are sampled log-uniformly by sample_config().
+#   • Continuous ranges are given as [low, high].
+#   • Categorical lists remain as is (uniform draw).
+search_space:
+  lr_log: [0.0001, 0.1]          # learning rate (log-uniform)
+  weight_decay_log: [1.0e-5, 0.01]
+  batch_size: [32, 128]          # mini-batch size (uniform integer)
+  # (Optional) data augmentation strength, dropout, etc. can be added here.
