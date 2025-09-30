@@ -1,0 +1,17 @@
+
+Input:
+# Task
+You carefully read the contents of the “Paper Outline” and select one GitHub link from the “GitHub URLs List” that you think is most relevant to the contents.
+# Constraints
+- Output the index number corresponding to the selected GitHub URL.
+- Be sure to select only one GitHub URL.
+- If there is no related GitHub link, output None.
+# Paper Outline
+PB2 frames the online hyperparameter selection problem as batch Gaussian Process (GP) bandit optimization of a time-varying function. The core methodology involves: (1) Modeling the objective function (e.g., RL reward) with a time-varying GP, using a kernel that combines a squared exponential kernel with a time kernel (kSE ◦ ktime) to capture the non-stationary nature of neural network training. A parameter 'ω' is introduced to model how the function varies over time. (2) Employing a parallel agent selection mechanism based on the GP model. For a batch of B agents, hyperparameters are selected by sequentially maximizing an acquisition function: xb_t = arg max x∈D µt,1(x) + sqrt(βt)σt,b(x), which updates the uncertainty based on currently training agents to reduce redundancy and explore distinct regions. (3) The PB2 algorithm iteratively updates network weights, evaluates models, records data, and periodically (every 'tready' steps) performs two actions: copying weights from top-performing agents to underperforming ones, and selecting new hyperparameters for all agents by fitting a GP model to the collected data and maximizing the acquisition function. The theoretical foundation includes a convergence guarantee showing sublinear cumulative regret under correlated time-varying functions.
+
+# GitHub URLs List
+['https://github.com/jparkerholder/PB2', 'https://github.com/ray-project/rl-experiments']
+Output:
+{
+    "index": 0
+}
