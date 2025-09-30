@@ -10,6 +10,10 @@ on:
         description: 'Runner type (e.g., ["ubuntu-latest"], ["self-hosted", "A100"])'
         required: true
         default: '["ubuntu-latest"]'
+      run_variations:
+        description: 'JSON array of run variations (e.g., ["baseline", "proposed", "ablation1"])'
+        required: true
+        default: '["baseline", "proposed"]'
 
 permissions:
   id-token: write
@@ -36,13 +40,26 @@ jobs:
         echo "=== [PHASE 1/2] Smoke test PASSED $(date -u) ===" | tee -a "$ITERATION_DIR/output.txt"
       FULL_EXPERIMENT_COMMAND: |
         set -e
+        IFS=',' read -ra variations <<< "${{ github.event.inputs.run_variations }}"
+
         if [ -n "$ITERATION_DIR" ] && [ -d "$ITERATION_DIR" ]; then
           find "$ITERATION_DIR" -mindepth 1 -delete
         fi
+
         echo "=== [PHASE 2/2] Full experiment start $(date -u) ===" | tee -a "$ITERATION_DIR/output.txt"
-        uv run python -u -m src.main --full-experiment \
-          > >(tee -a "$ITERATION_DIR/output.txt") \
-          2> >(tee -a "$ITERATION_DIR/error.txt" >&2)
+        for variation in "${variations[@]}"; do
+          echo "--- Starting run for variation: $variation ---" | tee -a "$ITERATION_DIR/output.txt"
+          uv run python -u -m src.main --full-experiment --variation "$variation" \
+            > >(tee -a "$ITERATION_DIR/output.txt") \
+            2> >(tee -a "$ITERATION_DIR/error.txt" >&2)
+          echo "--- Finished run for variation: $variation ---" | tee -a "$ITERATION_DIR/output.txt"
+        done
+
+        echo "--- Running evaluation step ---" | tee -a "$ITERATION_DIR/output.txt"
+        uv run python -u -m src.evaluate --results-dir "$ITERATION_DIR" \
+            > >(tee -a "$ITERATION_DIR/output.txt") \
+            2> >(tee -a "$ITERATION_DIR/error.txt" >&2)
+
         echo "=== [PHASE 2/2] Full experiment end $(date -u) ===" | tee -a "$ITERATION_DIR/output.txt"
       SEARCH_HF_COMMAND: |
         curl -s -G \
@@ -94,6 +111,7 @@ jobs:
             Guiding Principles:
             - Scope: Do not perform any Git operations like commit or push. Your sole responsibility is to make the code runnable.
             - Method: When fixing errors, you MUST only modify existing files. Do not create any new script files.
+            - Scientific Fairness: It is CRITICAL that all experimental variations are run with the EXACT SAME code. If you fix an error found during any run, you MUST restart the entire series of experiments from the very first variation to ensure fairness.
             - Autonomy: Execute all steps autonomously. Do not ask for permission.
             - Long-Running Tasks: Be aware that the full experiment can take many hours. You MUST set tool execution timeouts appropriately to avoid premature failures.
             - Resource Errors: If a Hugging Face resource is unavailable, you MUST find and implement a public alternative. To do this, you MUST first set two variables:
