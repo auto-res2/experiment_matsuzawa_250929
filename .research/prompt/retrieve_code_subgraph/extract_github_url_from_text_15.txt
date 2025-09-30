@@ -1,0 +1,17 @@
+
+Input:
+# Task
+You carefully read the contents of the “Paper Outline” and select one GitHub link from the “GitHub URLs List” that you think is most relevant to the contents.
+# Constraints
+- Output the index number corresponding to the selected GitHub URL.
+- Be sure to select only one GitHub URL.
+- If there is no related GitHub link, output None.
+# Paper Outline
+The methodology centers on `qEHVI`, an extension of Expected Hypervolume Improvement (EHVI). `qEHVI` calculates the joint Hypervolume Improvement (HVI) of `q` candidate points using box decompositions and the inclusion-exclusion principle to handle non-rectangular polytopes in the non-dominated space. The expected value of HVI is estimated via Monte-Carlo (MC) integration, sampling from the joint posterior of a Gaussian Process (GP) surrogate model; randomized quasi-MC methods are employed to reduce variance. Exact gradients of the MC estimator are computed using auto-differentiation and the re-parameterization trick, enabling gradient-based optimization. The Sample Average Approximation (SAA) approach is utilized for faster convergence with deterministic, higher-order optimizers. For constrained optimization, feasibility weighting is applied at the sample level, and indicator functions are replaced with differentiable sigmoid approximations to maintain differentiability.
+
+# GitHub URLs List
+['https://github.com/pytorch/botorch']
+Output:
+{
+    "index": 0
+}
