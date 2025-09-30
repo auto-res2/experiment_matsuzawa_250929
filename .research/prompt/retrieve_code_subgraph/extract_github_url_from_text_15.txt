@@ -1,0 +1,17 @@
+
+Input:
+# Task
+You carefully read the contents of the “Paper Outline” and select one GitHub link from the “GitHub URLs List” that you think is most relevant to the contents.
+# Constraints
+- Output the index number corresponding to the selected GitHub URL.
+- Be sure to select only one GitHub URL.
+- If there is no related GitHub link, output None.
+# Paper Outline
+DNN-MFBO utilizes a stacked architecture of deep neural networks, where each network models a specific fidelity. For fidelities m > 1, the input to the NN fm(x) is augmented with the output of the previous fidelity fm-1(x), i.e., [x; fm-1(x)], enabling information propagation and capturing complex inter-fidelity relationships. The weights in the output layer of each NN are treated as random variables with a standard normal prior, while all other weights are considered hyper-parameters. A stochastic variational learning algorithm is developed to jointly estimate the posterior distribution of these random weights (approximated as multivariate Gaussians) and optimize hyper-parameters by maximizing an evidence lower bound (ELBO) using the reparameterization trick. For optimization, a mutual information-based acquisition function, a(x, m) = (1/λm) * I(f*, fm(x)|D), is employed to select the next query location and fidelity. Its computation involves sequentially approximating output posteriors p(fm(x)|D) as Gaussians through fidelity-wise moment matching and Gauss-Hermite quadrature. The conditional entropy term within the acquisition function is handled via Monte-Carlo approximation over function maximum samples, where H(fm(x)|f*, D) is approximated by H(fm(x)|fM(x) ≤ f*, D), further approximated using moment matching and Gauss-Hermite quadrature.
+
+# GitHub URLs List
+['https://github.com/kirthevasank/mf-gp-ucb', 'https://github.com/YehongZ/MixedTypeBO', 'https://github.com/zi-w/Max-value-Entropy-Search', 'https://github.com/automl/SMAC3']
+Output:
+{
+    "index": 2
+}
