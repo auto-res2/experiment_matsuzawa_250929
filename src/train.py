@@ -54,7 +54,11 @@ def sample_config(search_space: Dict[str, Any]) -> Dict[str, Any]:
                 if low > 0 and k.endswith("_log"):
                     cfg[k] = float(10 ** np.random.uniform(math.log10(low), math.log10(high)))
                 else:
-                    cfg[k] = float(np.random.uniform(low, high))
+                    # Handle integer parameters like batch_size
+                    if k == "batch_size" or (isinstance(low, int) and isinstance(high, int)):
+                        cfg[k] = int(np.random.randint(low, high + 1))
+                    else:
+                        cfg[k] = float(np.random.uniform(low, high))
             else:
                 cfg[k] = random.choice(v)
         else:
