@@ -1,0 +1,17 @@
+
+Input:
+# Task
+You carefully read the contents of the “Paper Outline” and select one GitHub link from the “GitHub URLs List” that you think is most relevant to the contents.
+# Constraints
+- Output the index number corresponding to the selected GitHub URL.
+- Be sure to select only one GitHub URL.
+- If there is no related GitHub link, output None.
+# Paper Outline
+AUTOMATA integrates three core components: a hyper-parameter search algorithm, a gradient-based subset selection (GSS) method, and a hyper-parameter scheduling algorithm. For hyper-parameter search, it utilizes algorithms such as Random Search and Tree Parzen Structured Estimator (TPE). The central GSS technique selects data subsets and their associated weights such that the weighted subset loss gradient closely approximates the full training loss gradient. This optimization problem, derived from GRAD-MATCH, is solved using Orthogonal Matching Pursuit (OMP). An efficient 'per-batch' variant of GSS is employed, selecting mini-batches rather than individual data points. For hyper-parameter scheduling, AUTOMATA incorporates methods like Hyperband and Asynchronous Successive Halving Algorithm (ASHA) for early termination of unpromising configurations. Additionally, a warm-starting strategy is used, where models are initially trained on the full dataset for a few epochs (e.g., κ=0.35 for ASHA) to generate more informative loss gradients for subsequent subset selection.
+
+# GitHub URLs List
+['https://github.com/decile-team/cords']
+Output:
+{
+    "index": 0
+}
