@@ -1,0 +1,17 @@
+
+Input:
+# Task
+You carefully read the contents of the “Paper Outline” and select one GitHub link from the “GitHub URLs List” that you think is most relevant to the contents.
+# Constraints
+- Output the index number corresponding to the selected GitHub URL.
+- Be sure to select only one GitHub URL.
+- If there is no related GitHub link, output None.
+# Paper Outline
+The methodology is based on Bayesian model selection, optimizing hyperparameters by maximizing the marginal likelihood using linearized Laplace approximation. The core involves deriving lower bounds to the log marginal likelihood. Two main types of bounds are introduced: Parametric structured lower bounds (Theorem 1), which justify block-diagonal and diagonal approximations of the Generalized Gauss-Newton (GGN) Hessian, and Subset-of-Data Kernel Bounds (Theorem 2), derived from the dual NTK form of the log-determinant. These NTK-based bounds allow partitioning the data and outputs into batches for stochastic estimation. A further Parametric data subset bound (Theorem 3) and a Parametric doubly lower bound (Corollary 3.1) combine both concepts, enabling structured parametric approximations like KFAC on data subsets. The method allows trade-offs between estimation accuracy and computational complexity by varying batch sizes and partitioning strategies (e.g., output-wise or class-wise partitioning). Unbiased stochastic estimates and gradients are obtained by uniformly sampling index sets for batches.
+
+# GitHub URLs List
+['https://github.com/AlexImmer/ntk-marglik']
+Output:
+{
+    "index": 0
+}
