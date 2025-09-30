@@ -1,0 +1,17 @@
+
+Input:
+# Task
+You carefully read the contents of the “Paper Outline” and select one GitHub link from the “GitHub URLs List” that you think is most relevant to the contents.
+# Constraints
+- Output the index number corresponding to the selected GitHub URL.
+- Be sure to select only one GitHub URL.
+- If there is no related GitHub link, output None.
+# Paper Outline
+The methodology involves a theoretical analysis and an empirical simulation and benchmark study. Theoretically, the paper investigates how reshuffling affects the empirical loss surface by deriving the limiting distribution of the validation loss error, characterizing it with parameters for variance (σ²) and correlation (τ²) changes due to reshuffling. It then provides a bound on the expected regret based on a Gaussian process model for the empirical loss, relating reshuffling's benefits to the signal-to-noise ratio, loss surface curvature (m), and noise correlation (κ). For the simulation study, a univariate quadratic loss surface combined with a squared exponential kernel for the noise process (ϵ) is used to systematically vary m, κ, and τ. The benchmark experiments employ various machine learning algorithms (CatBoost, XGBoost, Elastic Net, Funnel MLP) and HPO optimizers (Random Search, HEBO, SMAC3) across different resampling strategies (holdout, M-fold CV, M-fold holdout, M-times M-fold CV), comparing fixed versus reshuffled splits.
+
+# GitHub URLs List
+['https://github.com/scikit-learn/scikit-learn', 'https://github.com/scikit-learn/scikit-learn', 'https://github.com/huawei-noah/HEBO', 'https://github.com/optuna/optuna-integration', 'https://github.com/scikit-learn/scikit-learn', 'https://github.com/optuna/optuna-examples', 'https://github.com/optuna/optuna-examples', 'https://github.com/scikit-learn/scikit-learn', 'https://github.com/bayesian-optimization/BayesianOptimization', 'https://github.com/facebook/Ax', 'https://github.com/facebook/Ax', 'https://github.com/scikit-optimize/scikit-optimize', 'https://github.com/automl/SMAC3', 'https://github.com/dragonfly/dragonfly', 'https://github.com/ray-project/ray', 'https://github.com/ray-project/ray', 'https://github.com/scikit-learn/scikit-learn', 'https://github.com/hyperopt/hyperopt-sklearn', 'https://github.com/slds-lmu/paper_2024_reshuffling', 'https://github.com/slds-lmu/paper_2024_reshuffling']
+Output:
+{
+    "index": 18
+}
