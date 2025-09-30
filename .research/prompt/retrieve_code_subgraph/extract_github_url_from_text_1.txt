@@ -1,0 +1,17 @@
+
+Input:
+# Task
+You carefully read the contents of the “Paper Outline” and select one GitHub link from the “GitHub URLs List” that you think is most relevant to the contents.
+# Constraints
+- Output the index number corresponding to the selected GitHub URL.
+- Be sure to select only one GitHub URL.
+- If there is no related GitHub link, output None.
+# Paper Outline
+The core methodology involves a deep kernel network where a neural network transforms input features, which then feed into a Gaussian Process kernel for probabilistic predictions. The model is meta-learned using an adaptation of Model-Agnostic Meta-Learning (MAML) for GPs, where task-independent kernel parameters are optimized by maximizing the log marginal likelihood across a collection of source tasks via stochastic gradient ascent. To address label normalization challenges across diverse tasks, a task augmentation strategy is introduced, randomly scaling labels for each training batch to promote scale-invariant representations. For new target tasks, the deep kernel parameters are fine-tuned. A data-driven warm-start initialization is also proposed, utilizing an evolutionary algorithm to identify an optimal initial set of hyperparameters based on the surrogate model's predictions on source tasks, minimizing normalized regret.
+
+# GitHub URLs List
+['https://github.com/boschresearch/MetaBO']
+Output:
+{
+    "index": 0
+}
