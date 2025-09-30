@@ -1,0 +1,17 @@
+
+Input:
+# Task
+You carefully read the contents of the “Paper Outline” and select one GitHub link from the “GitHub URLs List” that you think is most relevant to the contents.
+# Constraints
+- Output the index number corresponding to the selected GitHub URL.
+- Be sure to select only one GitHub URL.
+- If there is no related GitHub link, output None.
+# Paper Outline
+Deep Power Laws (DPL) is a multi-fidelity HPO method built upon the power-law relationship between validation loss and training epochs. The core of DPL is an ensemble of K (specifically, 5) probabilistic surrogates. Each surrogate is a neural network `g` that maps a hyperparameter configuration `λ` to three power-law coefficients `(α, β, γ)`. These coefficients define the predicted learning curve `f^(λ, b) = g(λ)α + g(λ)β * b^(-g(λ)γ)`. The ensemble of these neural networks is trained to minimize the L1 loss against observed learning curve data, with individual models initialized with different weights and trained on different mini-batches to provide robust posterior mean and variance estimates. Bayesian Optimization is then employed using the Expected Improvement (EI) acquisition function, which leverages these mean and variance predictions to select the next most promising configuration. A novel multi-fidelity strategy is used where selected configurations are advanced by small, incremental budgets (e.g., one epoch) rather than being fully trained immediately, allowing for dynamic pausing and continuation. The neural networks in the ensemble are 2-layer feedforward networks with 128 units per layer, Leaky ReLU non-linearity, and GLU activation on β and γ output units. Training involves an initial 250 epochs with random weights, followed by 20 epochs of refinement per HPO iteration, with a restart mechanism if optimization stagnates.
+
+# GitHub URLs List
+['https://github.com/releaunifreiburg/DPL', 'https://github.com/karpathy/nanoGPT', 'https://github.com/automl/LCBench', 'https://github.com/automl/HpBandSter', 'https://github.com/automl/DEHB', 'https://github.com/shib0li/DNN-MFBO', 'https://github.com/automl/SMAC3']
+Output:
+{
+    "index": 0
+}
