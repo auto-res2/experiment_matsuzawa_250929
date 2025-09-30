@@ -1,0 +1,17 @@
+
+Input:
+# Task
+You carefully read the contents of the “Paper Outline” and select one GitHub link from the “GitHub URLs List” that you think is most relevant to the contents.
+# Constraints
+- Output the index number corresponding to the selected GitHub URL.
+- Be sure to select only one GitHub URL.
+- If there is no related GitHub link, output None.
+# Paper Outline
+CES leverages a single hold-out dataset (Des-cal) for both early stopping and conformal inference. It involves training a neural network for a maximum number of epochs (tmax), storing intermediate models at regular intervals (τ epochs). For a test point, an 'augmented loss' function, L+1 es-cal(Mt, z), is defined, which incorporates the test point into the loss calculation over the Des-cal set. The best intermediate model is then selected by minimizing this augmented loss. Nonconformity scores are computed using this selected model for the Des-cal set and the test point. For outlier detection and classification, this leads to conformal p-values and prediction sets with finite-sample validity (label-conditional or marginal coverage). For regression tasks using squared-error loss or pinball loss (for quantile regression), the selection of the best model for continuous outcomes involves finding the lower envelope of a family of quadratic or piecewise-linear pinball loss functions, respectively, which is done using an efficient O(T log T) divide-and-conquer algorithm. This results in a step function for the best model, allowing for the construction of prediction intervals that guarantee marginal coverage.
+
+# GitHub URLs List
+['https://github.com/xinbinhuang/feature-selection_blogfeedback']
+Output:
+{
+    "index": null
+}
