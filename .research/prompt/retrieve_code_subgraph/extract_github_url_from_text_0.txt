@@ -1,0 +1,17 @@
+
+Input:
+# Task
+You carefully read the contents of the “Paper Outline” and select one GitHub link from the “GitHub URLs List” that you think is most relevant to the contents.
+# Constraints
+- Output the index number corresponding to the selected GitHub URL.
+- Be sure to select only one GitHub URL.
+- If there is no related GitHub link, output None.
+# Paper Outline
+The proposed Bayesian Optimization for Iterative Learning (BOIL) approach models the cost-sensitive black-box function `f(x,t)` as a Gaussian Process (GP) over a joint space of hyperparameters `x` and training iterations `t`. It uses a product kernel `k(x,x') x k(t,t')` and approximates the training time cost `c(x,t)` with a linear regressor. The next hyperparameter `x` and iteration `t` to evaluate are selected by maximizing an acquisition function (modified Expected Improvement) normalized by the predicted cost. The core innovation is a training curve compression technique: the entire learning curve `r(·|x,t)` is compressed into a single numeric score `y` using a Sigmoid (Logistic) preference function `l(u | m0, g0)`. The parameters `m0` (middle point) and `g0` (growth rate) of this Sigmoid function are learned directly from the data by maximizing the GP log marginal likelihood. To further enhance sample efficiency and prevent ill-conditioning of the GP covariance matrix, a data augmentation technique is introduced. This method selectively includes a subset of intermediate reward sequences (`M=15` maximum augmented points) by choosing points at the maximum of the GP predictive uncertainty, while ensuring the natural log of the covariance matrix's condition number remains below a threshold (δ=20).
+
+# GitHub URLs List
+['https://github.com/ntienvu/BOIL']
+Output:
+{
+    "index": 0
+}
